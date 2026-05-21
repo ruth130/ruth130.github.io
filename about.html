@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | AccessAble Accessibility Consulting</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* 🚫 2.3.3 Prefers-Reduced-Motion Media Query */
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto !important;
+            }
+            .back-to-top {
+                transition: none !important;
+            }
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #141619; 
+            color: #f3f0f7; 
+            line-height: 1.6;
+            padding: 0 1.5rem;
+        }
+
+        /* ♿ Skip to Content Link */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #c39eff;
+            color: #120e16;
+            padding: 8px 16px;
+            z-index: 100;
+            font-weight: bold;
+            transition: top 0.2s;
+            text-decoration: none;
+        }
+        .skip-link:focus {
+            top: 0;
+            outline: 3px solid #ffffff;
+            outline-offset: 2px;
+        }
+
+        /* 🏠 Structural Header Elements */
+        header {
+            max-width: 850px;
+            margin: 2.5rem auto;
+            border-bottom: 2px solid #32273e; 
+            padding-bottom: 2rem;
+        }
+
+        .header-brand {
+            display: flex; 
+            align-items: center; 
+            gap: 1.5rem; 
+            text-decoration: none; 
+            margin-bottom: 1.5rem; 
+            border: none;
+        }
+
+        .logo-link {
+            display: inline-block;
+            border-radius: 4px;
+            transition: outline 0.1s;
+        }
+        .logo-link:focus {
+            outline: 3px solid #c39eff;
+            outline-offset: 4px;
+        }
+
+        .header-logo {
+            height: 140px; 
+            width: auto; 
+            display: block; 
+            border: none;
+        }
+
+        /* 🗺️ Nav Menu */
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+            margin: 0;
+            padding: 0;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+    color: #f3f0f7;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.05rem;
+    padding: 0.8rem 0.6rem; /* Increases bounding box over 44px */
+    display: inline-block;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+}
+
+        nav a:hover {
+            color: #c39eff;
+            border-bottom-color: #c39eff;
+        }
+        
+        nav a:focus {
+            color: #c39eff;
+            outline: 3px solid #c39eff;
+            outline-offset: 2px;
+        }
+
+        nav a.active {
+            color: #c39eff;
+            border-bottom: 2px solid #c39eff;
+        }
+
+        /* 📱 Social Icons Area */
+       /* 📱 Social Icons Target Area Controls (SC 2.5.5 - Enhanced Spacing & Scale) */
+.social-group {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem; /* 20px clean spatial clearance buffer between distinct targets */
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #bdafcc;
+    width: 52px;  /* Absolute AAA physical boundaries */
+    height: 52px; /* Absolute AAA physical boundaries */
+    border-radius: 8px;
+    position: relative;
+    background-color: #1d1824;
+    border: 1px solid #32273e;
+    transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+}
+
+.social-link .brand-icon {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+    display: block;
+}
+
+/* Distinct, high-visibility external indicator icon layout */
+.social-link .external-glyph {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 12px;
+    height: 12px;
+    fill: currentColor;
+    opacity: 0.8;
+}
+
+.social-link:hover {
+    color: #c39eff;
+    background-color: #261f30;
+    border-color: #4c3b5c;
+}
+
+.social-link:focus {
+    color: #c39eff;
+    background-color: #261f30;
+    outline: 3px solid #c39eff;
+    outline-offset: 2px;
+}
+
+     /* Core Main Layout */
+main {
+    /* Explicitly limits block layouts to ~75 characters wide */
+    max-width: 75ch; 
+    margin: 0 auto;
+    padding-bottom: 5rem;
+}
+
+        .page-title {
+            margin: 3rem 0 1rem 0;
+            font-size: 2.2rem;
+            color: #ffffff;
+        }
+
+        .section-intro {
+            font-size: 1.2rem;
+            color: #d2c4e3; /* Increased contrast brightness */
+            margin-bottom: 3rem;
+        }
+
+        .profile-container {
+            display: flex;
+            gap: 2.5rem;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .photo-column {
+            flex: 0 0 auto;
+            width: 260px;
+            max-width: 100%;
+        }
+
+        .photo-column img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            border: 1px solid #32273e;
+            display: block;
+        }
+
+        .text-column {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .text-column h2 {
+            font-size: 1.4rem;
+            color: #c39eff;
+            margin: 0 0 0.75rem 0;
+        }
+
+        .text-column h2.second-heading {
+            margin-top: 2rem;
+        }
+
+        .text-column p {
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+            color: #f3f0f7;
+            line-height: 1.6;
+        }
+
+        /* 📢 CTA Booking Banner Area */
+        .cta-banner {
+            background-color: #1d1824;
+            border: 1px solid #32273e;
+            border-left: 6px solid #c39eff;
+            padding: 2.5rem;
+            border-radius: 12px;
+            margin-top: 4rem;
+        }
+
+        .cta-banner h2 {
+            font-size: 1.6rem;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .cta-banner p {
+            margin-bottom: 1.2rem;
+            color: #f3f0f7;
+            font-size: 1.1rem;
+        }
+
+        .cta-link {
+            color: #c39eff;
+            text-decoration: none;
+            font-weight: 700;
+        }
+        .cta-link:hover {
+            text-decoration: underline;
+        }
+        .cta-link:focus {
+            outline: 3px solid #c39eff;
+            outline-offset: 2px;
+            text-decoration: underline;
+        }
+
+        /* 🔝 Fixed Back to Top Control */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: #c39eff; 
+            color: #120e16;
+            border: 2px solid #32273e;
+            border-radius: 8px;
+            padding: 0.75rem 1.2rem;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            z-index: 999;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.3s, transform 0.3s, background-color 0.2s;
+            pointer-events: none; 
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto; 
+        }
+
+        .back-to-top:hover {
+            background-color: #ddc7ff;
+        }
+        .back-to-top:focus {
+            background-color: #ddc7ff;
+            outline: 3px solid #ffffff;
+            outline-offset: 2px;
+        }
+
+        /* 👣 Page Footer Area */
+        footer {
+            max-width: 850px;
+            margin: 3rem auto 1.5rem auto;
+            border-top: 1px solid #32273e;
+            padding-top: 2rem;
+            font-size: 0.9rem;
+            color: #bdafcc;
+            text-align: center;
+        }
+
+        .footer-nav {
+            margin-top: 0.75rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header>
+        <div class="header-brand">
+            <a href="index.html" class="logo-link" aria-label="AccessAble Accessibility Consulting - Home">
+                <img src="logo.png" alt="" class="header-logo" onerror="this.style.display='none'">
+            </a>
+            
+            <div style="display: block; text-align: left;">
+                <span style="display: block; font-size: 1.8rem; font-weight: 700; color: #ffffff; margin: 0; line-height: 1.2;">AccessAble Accessibility Consulting</span>
+                <span style="display: block; font-size: 0.95rem; color: #d2c4e3; margin: 0.3rem 0 0 0; line-height: 1.4;">Ruth Kearney, B.A, CIP | Certified Accessibility Consultant</span>
+            </div>
+        </div>
+
+        
+        <div class="nav-container">
+            <nav aria-label="Main Navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html" class="active" aria-current="page">About</a></li>
+                    <li><a href="services.html">Services & Pricing</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="accessibility.html">Accessibility</a></li>
+                </ul>
+            </nav>
+
+          <div class="social-group" aria-label="Social Media Context Links">
+    <a href="https://www.instagram.com/accessableaccessibility/" class="social-link" target="_blank" rel="noopener" aria-label="Visit our Instagram profile (opens in a new tab)">
+        <svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        <svg class="external-glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3zm-4 2H4v14h14v-6h2v8H2V3h8v2z"/></svg>
+    </a>
+    <a href="https://www.facebook.com/profile.php?id=61587194308628" class="social-link" target="_blank" rel="noopener" aria-label="Visit our Facebook page (opens in a new tab)">
+        <svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+        <svg class="external-glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3zm-4 2H4v14h14v-6h2v8H2V3h8v2z"/></svg>
+    </a>
+    <a href="https://www.linkedin.com/in/ruth-kearney-02051a6a" class="social-link" target="_blank" rel="noopener" aria-label="Visit our LinkedIn profile (opens in a new tab)">
+        <svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452z"/></svg>
+        <svg class="external-glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3zm-4 2H4v14h14v-6h2v8H2V3h8v2z"/></svg>
+    </a>
+</div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <h1 class="page-title">About AccessAble Accessibility Consulting</h1>
+        <p class="section-intro">Ruth Kearney, B.A, CIP | Certified Accessibility Consultant | EST. 2025</p>
+
+        <div class="profile-container">
+            
+            <div class="photo-column">
+                <img src="ruth.jpg" 
+                     alt="Ruth Kearney sitting at a desk with a purple keyboard, wearing cat-eye glasses, a septum piercing, and a grey t-shirt featuring a frog next to a red-and-white mushroom.">
+            </div>
+
+            <div class="text-column">
+                <section aria-label="Professional Expertise">
+                    <h2>Professional Expertise</h2>
+                    <p>
+                        Accessibility means dignity, autonomy, and policy integrity. My approach combines Brock University Certified expertise with a B.A in Psychology and a decade of Chartered Insurance Professional (CIP)-designated experience to ensure your recommendations are legally robust and human-centered.
+                    </p>
+                </section>
+
+                <section aria-label="Lived Experience">
+                    <h2 class="second-heading">Lived Experience</h2>
+                    <p>
+                        My work is rooted in a trauma-informed approach, recognizing that systemic barriers often carry an emotional weight. I prioritize intersectionality, acknowledging how neurodivergence overlaps with other disabilities and identities to create unique lived experiences.
+                    </p>
+                    <p>
+                        As an autistic professional raising neurodivergent children alongside my ND spouse, I live accessibility every day. I am here to help you bridge the gap between technical code and the lived reality of neurodivergence.
+                    </p>
+                </section>
+            </div>
+
+        </div>
+
+        <section class="cta-banner" aria-label="Engagement Intent Options">
+            <h2>Ready to start?</h2>
+            <p style="margin-bottom: 1.5rem;">To ensure personalized service and a manageable workload, all client intakes are structured to respect your time and communication preferences.</p>
+            
+            <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+                
+                <div style="flex: 1; min-width: 260px; background-color: #141619; border: 1px solid #32273e; padding: 1.5rem; border-radius: 8px;">
+                    <h3 style="color: #ffffff; margin-bottom: 0.5rem; font-size: 1.1rem;">Let's Chat First</h3>
+                    <p style="font-size: 0.95rem; color: #d2c4e3; margin-bottom: 1rem;">Book a free, 15-minute introductory consultation to discuss your needs.</p>
+                    <a href="https://calendar.app.google/gNQzkk5dsByMoFer8" 
+                       target="_blank" 
+                       rel="noopener" 
+                       class="cta-link" 
+                       style="display: inline-block; font-size: 1.05rem;"
+                       aria-label="Schedule Free Consultation (opens in new tab)">Schedule Free Consultation (opens in new tab) &rarr;</a>
+                </div>
+
+                <div style="flex: 1; min-width: 260px; background-color: #141619; border: 1px solid #32273e; padding: 1.5rem; border-radius: 8px;">
+                    <h3 style="color: #ffffff; margin-bottom: 0.5rem; font-size: 1.1rem;">Request a Project Quote</h3>
+                    <p style="font-size: 0.95rem; color: #d2c4e3; margin-bottom: 1rem;">Have a specific project or audit scope in mind? Submit your parameters directly.</p>
+                    <a href="https://forms.gle/bXz4GAgffQhFirALA" 
+                       target="_blank" 
+                       rel="noopener" 
+                       class="cta-link" 
+                       style="display: inline-block; font-size: 1.05rem;"
+                       aria-label="Fill Out Quote Request (opens in new tab)">Fill Out Quote Request (opens in new tab) &rarr;</a>
+                </div>
+
+            </div> 
+
+            <p style="font-size: 1rem; color: #f3f0f7; margin-bottom: 0.5rem;">Prefer direct communication? Email me at: <a href="mailto:ruth@accessableaccessibility.ca" class="cta-link">ruth@accessableaccessibility.ca</a></p>
+     </section>
+    </main>
+
+    <button id="backToTopBtn" class="back-to-top" aria-label="Back to top" onclick="scrollToTop()">
+        &uarr; Top
+    </button>
+
+    <script>
+        const backToTopBtn = document.getElementById("backToTopBtn");
+
+        window.onscroll = function() {
+            if (document.body.scrollTop > 250 || document.documentElement.scrollTop > 250) {
+                backToTopBtn.classList.add("visible");
+            } else {
+                backToTopBtn.classList.remove("visible");
+            }
+        };
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+
+    <footer>
+        <p>&copy; 2026 AccessAble Accessibility Consulting. All rights reserved.</p>
+        <nav class="footer-nav" aria-label="Footer Navigation">
+            <div class="footer-links">
+                <a href="accessibility.html">Accessibility Statement</a>
+            </div>
+
+            <div class="social-group" style="margin-top: 1.5rem; justify-content: center;" aria-label="Social Media Context Links">
+    <a href="https://www.instagram.com/accessableaccessibility/" class="social-link" target="_blank" rel="noopener" aria-label="Visit our Instagram profile (opens in a new tab)">
+        <svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        <svg class="external-glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3zm-4 2H4v14h14v-6h2v8H2V3h8v2z"/></svg>
+    </a>
+    <a href="https://www.facebook.com/profile.php?id=61587194308628" class="social-link" target="_blank" rel="noopener" aria-label="Visit our Facebook page (opens in a new tab)">
+        <svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+        <svg class="external-glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3zm-4 2H4v14h14v-6h2v8H2V3h8v2z"/></svg>
+    </a>
+    <a href="https://www.linkedin.com/in/ruth-kearney-02051a6a" class="social-link" target="_blank" rel="noopener" aria-label="Visit our LinkedIn profile (opens in a new tab)">
+        <svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452z"/></svg>
+        <svg class="external-glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3zm-4 2H4v14h14v-6h2v8H2V3h8v2z"/></svg>
+    </a>
+</div>
+        </nav>
+    </footer>
+
+</body>
+</html>
