@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources | AccessAble Accessibility Consulting</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* 🚫 2.3.3 Prefers-Reduced-Motion Media Query */
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto !important;
+            }
+            .back-to-top {
+                transition: none !important;
+            }
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #141619; 
+            color: #f3f0f7; 
+            line-height: 1.6;
+            padding: 0 1.5rem;
+        }
+
+        /* ♿ Skip to Content Link */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #c39eff;
+            color: #120e16;
+            padding: 8px 16px;
+            z-index: 100;
+            font-weight: bold;
+            transition: top 0.2s;
+            text-decoration: none;
+        }
+        .skip-link:focus {
+            top: 0;
+            outline: 3px solid #ffffff;
+            outline-offset: 2px;
+        }
+
+        /* 🏠 Header Layout */
+        header {
+            max-width: 850px;
+            margin: 2.5rem auto;
+            border-bottom: 2px solid #32273e; 
+            padding-bottom: 2rem;
+        }
+
+        .header-brand {
+            display: flex; 
+            align-items: center; 
+            gap: 1.5rem; 
+            margin-bottom: 1.5rem; 
+        }
+
+        .logo-link {
+            display: inline-block;
+            border-radius: 4px;
+            transition: outline 0.1s;
+            border: none;
+        }
+        .logo-link:focus {
+            outline: 3px solid #c39eff;
+            outline-offset: 4px;
+        }
+
+        .header-logo {
+            height: 140px; 
+            width: auto; 
+            display: block; 
+            border: none;
+        }
+
+        .brand-text {
+            display: block; 
+            text-align: left;
+        }
+
+        .brand-title {
+            display: block; 
+            font-size: 1.8rem; 
+            font-weight: 700; 
+            color: #ffffff; 
+            margin: 0; 
+            line-height: 1.2;
+        }
+
+        .brand-subtitle {
+            display: block; 
+            font-size: 0.95rem; 
+            color: #bdafcc; 
+            margin: 0.3rem 0 0 0; 
+            line-height: 1.4;
+        }
+
+        /* 🗺️ Main Navigation Menu */
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+            margin: 0;
+            padding: 0;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #f3f0f7;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            padding: 0.8rem 0.6rem; 
+            display: inline-block;
+            border-bottom: 2px solid transparent;
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        nav a:hover {
+            color: #c39eff;
+        }
+        
+        nav a:focus {
+            color: #c39eff;
+            outline: 3px solid #c39eff;
+            outline-offset: 2px;
+        }
+
+        nav a[aria-current="page"] {
+            color: #c39eff;
+            border-bottom: 2px solid #c39eff;
+        }
+
+        /* Core Article & Section Containment */
+        main {
+            max-width: 75ch; 
+            margin: 0 auto;
+            padding-bottom: 5rem;
+        }
+
+        .page-title {
+            margin: 3rem 0 1rem 0;
+            font-size: 2.2rem;
+            color: #ffffff;
+        }
+
+        .section-intro {
+            font-size: 1.2rem;
+            color: #bdafcc;
+            margin-bottom: 3.5rem;
+        }
+
+        .resource-section {
+            background-color: #1d1824;
+            border: 1px solid #32273e;
+            padding: 2.5rem;
+            border-radius: 12px;
+            margin-bottom: 3.5rem;
+        }
+
+        .resource-section h2 {
+            font-size: 1.7rem;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #32273e;
+            padding-bottom: 0.5rem;
+        }
+
+        /* 🎁 Accordion / Collapsible Drawers Elements */
+        details {
+            background-color: #14111a;
+            border: 1px solid #32273e;
+            border-radius: 8px;
+            margin-bottom: 1.25rem;
+            overflow: hidden;
+            transition: border-color 0.2s;
+        }
+
+        details[open] {
+            border-color: #c39eff;
+            padding-bottom: 1.5rem;
+        }
+
+        summary {
+            list-style: none; /* Hide default browser arrow */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 1.5rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #c39eff;
+            cursor: pointer;
+            user-select: none;
+            position: relative;
+        }
+
+        summary:focus {
+            outline: 3px solid #c39eff;
+            outline-offset: -3px;
+            background-color: #1d1824;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: "+";
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: #c39eff;
+            transition: transform 0.2s;
+        }
+
+        details[open] summary::after {
+            content: "\2212"; /* Unicode minus symbol */
+        }
+
+        .drawer-content {
+            padding: 0 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .drawer-content h3 {
+            font-size: 1.15rem;
+            color: #ffffff;
+            margin: 1.5rem 0 0.5rem 0;
+        }
+
+        .drawer-content h3:first-child {
+            margin-top: 0;
+        }
+
+        .drawer-content p {
+            color: #f3f0f7;
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+
+        .drawer-content ul {
+            margin-left: 1.75rem;
+            margin-bottom: 1.25rem;
+            color: #bdafcc;
+        }
+
+        .drawer-content li {
+            margin-bottom: 0.75rem;
+            font-size: 1.05rem;
+        }
+
+        .drawer-content strong {
+            color: #ffffff;
+        }
+
+        .drawer-content a {
+            color: #c39eff;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .drawer-content a:hover, .drawer-content a:focus {
+            text-decoration: underline;
+            color: #ddc7ff;
+        }
+
+        .drawer-content a:focus {
+            outline: 3px solid #c39eff;
+            outline-offset: 2px;
+        }
+
+        .drawer-content ul ul {
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+            list-style-type: circle;
+        }
+
+        .pricing-box {
+            background-color: #261f30;
+            border-left: 4px solid #c39eff;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .pricing-box h4 {
+            color: #ffffff;
+            font-size: 1.15rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Back to top utility button layout */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: #c39eff; 
+            color: #120e16;
+            border: 2px solid #32273e;
+            border-radius: 8px;
+            padding: 0.75rem 1.2rem;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            z-index: 999;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.3s, transform 0.3s;
+            pointer-events: none; 
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto; 
+        }
+
+        .back-to-top:hover, .back-to-top:focus {
+            background-color: #ddc7ff;
+        }
+        .back-to-top:focus {
+            outline: 3px solid #ffffff;
+            outline-offset: 2px;
+        }
+
+        footer {
+            max-width: 850px;
+            margin: 3rem auto 1.5rem auto;
+            border-top: 1px solid #32273e;
+            padding-top: 2rem;
+            font-size: 0.9rem;
+            color: #bdafcc;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header>
+        <div class="header-brand">
+            <a href="index.html" class="logo-link" aria-label="AccessAble Accessibility Consulting - Home">
+                <img src="images/logo.png" alt="" class="header-logo" onerror="this.style.display='none'">
+            </a>
+            <div class="brand-text">
+                <span class="brand-title">AccessAble Accessibility Consulting</span>
+                <span class="brand-subtitle">Ruth Kearney, B.A, CIP | Certified Accessibility Consultant</span>
+            </div>
+        </div>
+        
+        <div class="nav-container">
+            <nav aria-label="Main Navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services & Pricing</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="resources.html" aria-current="page">Resources</a></li>
+                    <li><a href="accessibility.html">Accessibility</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <h1 class="page-title">Resource Guides & Toolkits</h1>
+        <p class="section-intro">Accessibility isn't just a checkbox or a set of legal hurdles[cite: 8, 77]. It's about dignity, autonomy, and policy integrity[cite: 8, 77]. Click on any section below to open and review our resource frameworks.</p>
+
+        <article class="resource-section" aria-labelledby="individual-main-heading">
+            <h2 id="individual-main-heading">Individual Playbooks</h2>
+            <p>Tailored strategies for 1:1 advocacy coaching, personal support navigating frameworks, and individual workplace adjustments.</p>
+            
+            <details>
+                <summary>I. Navigating the Rules (The Legal Foundation)</summary>
+                <div class="drawer-content">
+                    <p>Canada's laws are evolving toward a barrier-free country by 2040[cite: 13]. Knowing which law protects you is the first step in opening doors[cite: 13].</p>
+                    <ul>
+                        <li><strong>Federal Protections:</strong> The <a href="https://laws-lois.justice.gc.ca/eng/acts/A-0.6/page-1.html" target="_blank" rel="noopener" aria-label="Accessible Canada Act official text (opens in a new tab)"><em>Accessible Canada Act (ACA)</em></a> and the <a href="https://laws-lois.justice.gc.ca/eng/acts/h-6/" target="_blank" rel="noopener" aria-label="Canadian Human Rights Act official text (opens in a new tab)"><em>Canadian Human Rights Act</em></a> protect you when dealing with banks, airlines, or federal departments[cite: 16].</li>
+                        <li><strong>Provincial Standards:</strong> Most daily life (work, school, local shops) is governed by your province[cite: 17]. Whether it is the <a href="https://www.ontario.ca/laws/statute/05a11" target="_blank" rel="noopener" aria-label="AODA Ontario official framework (opens in a new tab)">AODA (Ontario)</a>, <a href="https://web2.gov.mb.ca/laws/statutes/ccsm/a001-7e.php" target="_blank" rel="noopener" aria-label="AMA Manitoba official framework (opens in a new tab)">AMA (Manitoba)</a>, or the Accessibility Acts in BC, NS, SK, NB, and NL, you have a legal right to be included[cite: 18]. <a href="https://www.canada.ca/en/human-rights-commission/missions/accessibility/provincial-territorial.html" target="_blank" rel="noopener" aria-label="Access the Provincial Rights Hub (opens in a new tab)">Access the Provincial Rights Hub</a>[cite: 19].</li>
+                        <li><strong>Disability Tax Credit (DTC):</strong> Beyond tax relief, the <a href="https://www.canada.ca/en/revenue-agency/services/tax/individuals/segments/tax-credits-deductions-persons-disabilities/disability-tax-credit.html" target="_blank" rel="noopener" aria-label="Disability Tax Credit CRA application portal (opens in a new tab)">DTC</a> unlocks the RDSP (government-matched savings) and the Child Disability Benefit[cite: 20].</li>
+                    </ul>
+                </div>
+            </details>
+
+            <details>
+                <summary>II. Simple Ways to Start Today ("Quick Wins")</summary>
+                <div class="drawer-content">
+                    <p>You don't need a formal diagnosis or a lawyer to start removing barriers[cite: 27]. These shifts reduce cognitive load and improve your daily quality of life[cite: 28]:</p>
+                    <ul>
+                        <li><strong>Environmental Control:</strong> Wear blue-light glasses or noise-canceling headphones[cite: 30]. Ask your office building manager or facilities team to dim overhead lights or move your desk to a low-traffic area[cite: 30].</li>
+                        <li><strong>Communication Scripts:</strong> Request "no unscheduled meetings" and ask for agendas in advance[cite: 31]. Use the phrase: <em>"To ensure I don't miss a detail, I need written follow-up for verbal instructions."</em> [cite: 32]</li>
+                        <li><strong>Digital Assistance:</strong>
+                            <ul>
+                                <li><a href="https://goblin.tools/" target="_blank" rel="noopener" aria-label="Goblin tools website (opens in a new tab)"><strong>Goblin.tools:</strong></a> Use the "Magic To-Do" to break big tasks into tiny steps, or the "Formalizer" to fix the tone of your emails[cite: 35].</li>
+                                <li><a href="https://www.meetfabriq.com/" target="_blank" rel="noopener" aria-label="Fabriq social health tracker app (opens in a new tab)"><strong>Fabriq:</strong></a> A "social health" app designed to help you stay intentional with your relationships[cite: 36]. It provides gentle reminders to reach out to the people who matter most, ensuring your support network stays strong even during periods of burnout or "hermit mode." [cite: 37]</li>
+                                <li><a href="https://finchcare.com/" target="_blank" rel="noopener" aria-label="Finch self care app website (opens in a new tab)"><strong>Finch:</strong></a> A gentle self-care app that turns daily tasks into a rewarding game[cite: 38].</li>
+                                <li><a href="https://www.focusmate.com/" target="_blank" rel="noopener" aria-label="Focusmate virtual body doubling portal (opens in a new tab)"><strong>Focusmate:</strong></a> Provides virtual "body doubling." [cite: 38] You book a session to work alongside a partner in real-time, which can be a gamechanger for staying on task with administrative work[cite: 39].</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </details>
+
+            <details>
+                <summary>III. Strategic Advocacy (The Expert Layer)</summary>
+                <div class="drawer-content">
+                    <p>Self-advocacy is exhausting[cite: 46]. Sometimes, you need an expert who understands the systems of insurance, psychology, and provincial law to stand in your corner[cite: 46].</p>
+                    <ul>
+                        <li><strong>Workplace & School Navigation:</strong> Distinguishing between Informal Adjustments (lighting, check-ins) and Formal Accommodations (WFH models, specialized equipment, IEPs)[cite: 47]. I help you draft the "Functional Assessment" requests that HR understands[cite: 48].</li>
+                        <li><strong>Caregiver Support:</strong> For parents navigating the K-12 system or seeking respite[cite: 49]. Dial <strong>2-1-1</strong> on your phone or visit the <a href="https://211.ca/" target="_blank" rel="noopener" aria-label="211.ca resource website (opens in a new tab)">211.ca</a> framework to find local home care, respite, and provincial grants in your specific city[cite: 50].</li>
+                        <li><strong>Ruth's Regulators (Tactile Support):</strong> Sensory regulation is a right, not a luxury[cite: 51]. My top picks for discreet focus (not sponsored): <a href="https://www.onoroller.com/" target="_blank" rel="noopener" aria-label="Ono Roller focus tool storefront (opens in a new tab)">Ono Roller</a> (sleek, professional-looking, and silent for high-stakes meetings) [cite: 52], <a href="https://www.tanglecreations.com/" target="_blank" rel="noopener" aria-label="Tangle JR fidget tool storefront (opens in a new tab)">Tangle JR</a> (perfect for continuous movement during long calls) [cite: 53], and the <a href="https://www.schylling.com/brand/needoh/" target="_blank" rel="noopener" aria-label="Needoh sensory toys page (opens in a new tab)">Needoh Nice Cube</a> (a firm, crunchy squish that is incredibly grounding)[cite: 55].</li>
+                    </ul>
+
+                    <div class="pricing-box">
+                        <h4>Ready to find your way forward? [cite: 61]</h4>
+                        <p>To ensure personalized service and manage academic commitments, all inquiries are handled via email[cite: 62]. 1:1 Advocacy Coaching ($150) provides focused strategy for your specific workplace or school barrier[cite: 63]. The "Pocket Coach" ($350/mo) provides on-demand, expert support via WhatsApp for real-time advocacy[cite: 64].</p>
+                        <p><a href="https://calendar.app.google/7vMgFfpvtWmjK6cx5" target="_blank" rel="noopener" aria-label="Book a free 15-minute consultation (opens in a new tab)">Book a 15-minute free consultation calendar session here</a> [cite: 66] or email <a href="mailto:ruth@accessableaccessibility.ca">ruth@accessableaccessibility.ca</a>[cite: 65].</p>
+                    </div>
+                </div>
+            </details>
+        </article>
+
+        <article class="resource-section" aria-labelledby="org-main-heading">
+            <h2 id="org-main-heading">Organizational Handouts</h2>
+            <p>Operational blueprints targeting hidden processes, legal compliance structures, and professional audit strategies.</p>
+            
+            <details>
+                <summary>I. Navigating the Rules (The Legal Foundation)</summary>
+                <div class="drawer-content">
+                    <p>Canada's structural laws are evolving toward a mandatory barrier-free country by 2040. Ensure your workflow aligns with current frameworks:</p>
+                    <ul>
+                        <li><strong>Federal Framework:</strong> The <a href="https://laws-lois.justice.gc.ca/eng/acts/A-0.6/page-1.html" target="_blank" rel="noopener" aria-label="Accessible Canada Act regulatory parameters (opens in a new tab)"><em>Accessible Canada Act (ACA)</em></a> sets comprehensive requirements across federally regulated industries[cite: 88].</li>
+                        <li><strong>Provincial Standards:</strong> Compliance parameters are rolling out provincially through <a href="https://www.ontario.ca/page/accessibility-laws" target="_blank" rel="noopener" aria-label="AODA Ontario laws registry (opens in a new tab)">AODA (Ontario)</a> [cite: 91], <a href="https://www.gov.mb.ca/dio/accessibility_legislation.html" target="_blank" rel="noopener" aria-label="AMA Manitoba rules portal (opens in a new tab)">AMA (Manitoba)</a> [cite: 92], <a href="https://accessibility.novascotia.ca/act" target="_blank" rel="noopener" aria-label="Nova Scotia Accessibility Act guidelines (opens in a new tab)">Nova Scotia Accessibility Act</a> [cite: 93], <a href="https://www2.gov.bc.ca/gov/content/governments/about-the-bc-government/accessibility/legislation" target="_blank" rel="noopener" aria-label="Accessible British Columbia Act reference page (opens in a new tab)">Accessible British Columbia Act</a> [cite: 94], <a href="https://www.gov.nl.ca/cssd/accessibility-act/" target="_blank" rel="noopener" aria-label="Accessibility Act Newfoundland and Labrador registry (opens in a new tab)">Accessibility Act (NL)</a> [cite: 95], <a href="https://www.saskatchewan.ca/residents/family-and-social-support/people-with-disabilities/accessibility-legislation" target="_blank" rel="noopener" aria-label="The Accessible Saskatchewan Act legal portal (opens in a new tab)">The Accessible Saskatchewan Act</a> [cite: 96], and the <a href="https://www2.gnb.ca/content/gnb/en/departments/social-development/persons_with_disabilities.html" target="_blank" rel="noopener" aria-label="New Brunswick Accessibility guidelines portal (opens in a new tab)">New Brunswick Accessibility Act</a>[cite: 97].</li>
+                        <li><strong>International Best Practice:</strong> <a href="https://www.w3.org/TR/WCAG22/" target="_blank" rel="noopener" aria-label="WCAG 2.2 Standards official rules (opens in a new tab)">WCAG 2.2 Standards</a>[cite: 99]. Focus on making your digital presence <strong>POUR</strong>: <em>Perceivable, Operable, Understandable, and Robust[cite: 100].</em></li>
+                    </ul>
+                </div>
+            </details>
+
+            <details>
+                <summary>II. Simple Ways to Start Today ("Quick Wins")</summary>
+                <div class="drawer-content">
+                    <p>You don't need to be a coder to make an impact[cite: 108]. These shifts reduce cognitive load and improve structural usability[cite: 108]:</p>
+                    <ul>
+                        <li><strong>Clear Language:</strong> Use <a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/clear-communication.html" target="_blank" rel="noopener" aria-label="Canada Plain Language writing standard (opens in a new tab)">plain language</a> to significantly reduce barriers for neurodivergent clients[cite: 109, 110].</li>
+                        <li><strong>The Microsoft Checker:</strong> Use the built-in <a href="https://support.microsoft.com/en-us/office/improve-accessibility-with-the-accessibility-checker-92e23b38-154b-4658-9985-0d610858ebe3" target="_blank" rel="noopener" aria-label="Microsoft Office Accessibility Checker documentation (opens in a new tab)">Accessibility Checker</a> in Microsoft Office[cite: 111, 112]. It's a spell-checker for inclusion[cite: 112].</li>
+                        <li><strong>Color Contrast Verification:</strong> Use contrast checking adjustments to ensure text is readable for low-vision users, keeping text blocks from losing layout compliance[cite: 113, 114].</li>
+                    </ul>
+                </div>
+            </details>
+
+            <details>
+                <summary>III. Strategic Partnership (The Expert Layer)</summary>
+                <div class="drawer-content">
+                    <p>Free tools only catch 30-40% of accessibility issues[cite: 121]. For the remaining 60%, you need the Human Layer—expert manual verification that identifies broken processes technical tools cannot see[cite: 121].</p>
+                    <ul>
+                        <li><strong>Expert Team Training ($800 - $1,200):</strong> From standard foundational decks to fully customized role-specific sessions[cite: 122].</li>
+                        <li><strong>Comprehensive Digital Audits (Starting at $2,000):</strong> Full manual, human-first verification to ensure compliance and mitigate legal risk[cite: 123].</li>
+                        <li><strong>Ad-Hoc Strategic Consulting ($200/hr):</strong> Expert support for document remediation, technical Q&A, or strategy sessions[cite: 124].</li>
+                    </ul>
+
+                    <div class="pricing-box">
+                        <h4>Ready to open your "digital front door"? [cite: 125]</h4>
+                        <p>To ensure personalized service and manage academic commitments, all inquiries are handled via email[cite: 126]. Contact <a href="mailto:ruth@accessableaccessibility.ca">ruth@accessableaccessibility.ca</a> [cite: 127] or click here to <a href="https://calendar.app.google/7vMgFfpvtWmjK6cx5" target="_blank" rel="noopener" aria-label="Book a free 15-minute consultation layout session (opens in a new tab)">book a free 15-minute consultation layout session</a>[cite: 128, 129].</p>
+                    </div>
+                </div>
+            </details>
+        </article>
+    </main>
+
+    <button id="backToTopBtn" class="back-to-top" aria-label="Back to top" onclick="scrollToTop()">
+        &uarr; Top
+    </button>
+
+    <script>
+        const backToTopBtn = document.getElementById("backToTopBtn");
+
+        window.onscroll = function() {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                backToTopBtn.classList.add("visible");
+            } else {
+                backToTopBtn.classList.remove("visible");
+            }
+        };
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+
+    <footer>
+        <p>&copy; 2026 AccessAble Accessibility Consulting. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
