@@ -4,439 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services & Pricing | AccessAble Accessibility Consulting</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* 🚫 2.3.3 Prefers-Reduced-Motion Media Query */
-        @media (prefers-reduced-motion: reduce) {
-            html {
-                scroll-behavior: auto !important;
-            }
-            .back-to-top {
-                transition: none !important;
-            }
-        }
-
-        body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background-color: #141619; 
-            color: #f3f0f7; 
-            line-height: 1.6;
-            padding: 0 1.5rem;
-        }
-
-        /* ♿ Skip to Content Link */
-        .skip-link {
-            position: absolute;
-            top: -40px;
-            left: 0;
-            background: #c39eff;
-            color: #120e16;
-            padding: 8px 16px;
-            z-index: 100;
-            font-weight: bold;
-            transition: top 0.2s;
-            text-decoration: none;
-        }
-        .skip-link:focus {
-            top: 0;
-            outline: 3px solid #ffffff;
-            outline-offset: 2px;
-        }
-
-        /* 🏠 Structural Header Elements */
-        header {
-            max-width: 850px;
-            margin: 2.5rem auto;
-            border-bottom: 2px solid #32273e; 
-            padding-bottom: 2rem;
-        }
-
-        .header-brand {
-            display: flex; 
-            align-items: center; 
-            gap: 1.5rem; 
-            text-decoration: none; 
-            margin-bottom: 1.5rem; 
-            border: none;
-        }
-
-        /* Target focus ring specifically to the independent link */
-        .logo-link {
-            display: inline-block;
-            border-radius: 4px;
-            transition: outline 0.1s;
-        }
-        .logo-link:focus {
-            outline: 3px solid #c39eff;
-            outline-offset: 4px;
-        }
-
-        .header-logo {
-            height: 140px; 
-            width: auto; 
-            display: block; 
-            border: none;
-        }
-
-        /* 🗺️ Nav Menu & Explicit AAA Sizing (SC 2.5.5) */
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 1.5rem;
-            margin: 0;
-            padding: 0;
-            flex-wrap: wrap;
-        }
-
-        nav a {
-    color: #f3f0f7;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1.05rem;
-    padding: 0.8rem 0.6rem; /* Increases bounding box over 44px */
-    display: inline-block;
-    border-bottom: 2px solid transparent;
-    transition: color 0.2s, border-color 0.2s;
-}
-
-        nav a:hover {
-            color: #c39eff;
-            border-bottom-color: #c39eff;
-        }
-        
-        /* ✨ 2.4.11 / 2.4.13 Clean Interactive Outlines */
-        nav a:focus {
-            color: #c39eff;
-            outline: 3px solid #c39eff;
-            outline-offset: 2px;
-        }
-
-        nav a.active {
-            color: #c39eff;
-            border-bottom: 2px solid #c39eff;
-        }
-
-        /* 📱 Social Icons Target Area Controls (SC 2.5.5 - Enhanced Spacing & Scale) */
-        .social-group {
-            display: flex;
-            align-items: center;
-            gap: 1.25rem; /* 20px clean spatial clearance buffer between distinct targets */
-        }
-
-        .social-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            color: #bdafcc;
-            width: 52px;  /* Absolute AAA physical boundaries */
-            height: 52px; /* Absolute AAA physical boundaries */
-            border-radius: 8px;
-            position: relative;
-            background-color: #1d1824;
-            border: 1px solid #32273e;
-            transition: color 0.2s, background-color 0.2s, border-color 0.2s;
-        }
-
-        .social-link .brand-icon {
-            width: 24px;
-            height: 24px;
-            fill: currentColor;
-            display: block;
-        }
-
-        /* Distinct, high-visibility external indicator icon layout */
-        .social-link .external-glyph {
-            position: absolute;
-            top: 6px;
-            right: 6px;
-            width: 12px;
-            height: 12px;
-            fill: currentColor;
-            opacity: 0.8;
-        }
-
-        .social-link:hover {
-            color: #c39eff;
-            background-color: #261f30;
-            border-color: #4c3b5c;
-        }
-
-        .social-link:focus {
-            color: #c39eff;
-            background-color: #261f30;
-            outline: 3px solid #c39eff;
-            outline-offset: 2px;
-        }
-
- /* Core Main Layout */
-main {
-    /* Explicitly limits block layouts to ~75 characters wide */
-    max-width: 75ch; 
-    margin: 0 auto;
-    padding-bottom: 5rem;
-}
-
-        .page-title {
-            margin: 3rem 0 1rem 0;
-            font-size: 2.2rem;
-            color: #ffffff;
-        }
-
-        .services-section {
-            margin-bottom: 4rem;
-            scroll-margin-top: 2rem;
-        }
-
-        .services-section h2 {
-            font-size: 1.5rem;
-            color: #ffffff;
-            margin-bottom: 1rem;
-            border-left: 5px solid #c39eff;
-            padding-left: 0.75rem;
-        }
-
-        .section-description {
-            color: #bdafcc;
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .card-list {
-            list-style: none; 
-            padding: 0;
-            margin: 0;
-        }
-
-        .card {
-            background-color: #1d1824; 
-            border: 1px solid #32273e;
-            padding: 2rem;
-            border-radius: 12px;
-            margin-bottom: 1.5rem;
-        }
-
-        .card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .card h3 {
-            font-size: 1.35rem;
-            color: #ffffff;
-        }
-
-        .price {
-            font-size: 1.35rem;
-            font-weight: 700;
-            color: #c39eff;
-            white-space: nowrap;
-        }
-
-        .card p {
-            color: #f3f0f7; 
-            font-size: 1.05rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .meta-info {
-            list-style: none;
-            font-size: 0.95rem;
-            color: #f3f0f7;
-            border-top: 1px solid #32273e;
-            padding-top: 1rem;
-            margin-top: 1rem;
-        }
-
-        .meta-info li {
-            margin-bottom: 0.5rem;
-        }
-
-        .meta-info strong {
-            color: #ffffff;
-        }
-
-        .human-layer-box {
-            background-color: #1d1824;
-            border-left: 6px solid #c39eff;
-            padding: 2.2rem;
-            border-radius: 12px;
-            margin: 4rem 0;
-        }
-
-        .human-layer-box h3 {
-            font-size: 1.4rem;
-            color: #c39eff;
-            margin-bottom: 1rem;
-        }
-
-        .human-layer-box p {
-            font-size: 1.1rem;
-            color: #f3f0f7;
-        }
-
-        /* 📢 CTA Booking Banner Area */
-        .cta-banner {
-            background-color: #1d1824;
-            border: 1px solid #32273e;
-            border-left: 6px solid #c39eff;
-            padding: 2.5rem;
-            border-radius: 12px;
-            margin-top: 2rem;
-        }
-
-        .cta-banner h3 {
-            font-size: 1.6rem;
-            color: #ffffff;
-            margin-bottom: 1rem;
-        }
-
-        .cta-banner p {
-            margin-bottom: 1.2rem;
-            color: #f3f0f7;
-            font-size: 1.1rem;
-        }
-
-        .cta-link {
-            color: #c39eff;
-            text-decoration: none;
-            font-weight: 700;
-        }
-        .cta-link:hover {
-            text-decoration: underline;
-        }
-        .cta-link:focus {
-            outline: 3px solid #c39eff;
-            outline-offset: 2px;
-            text-decoration: underline;
-        }
-
-	.cta-link {
-            color: #c39eff;
-            text-decoration: none;
-            font-weight: 700;
-        }
-        .cta-link:hover {
-            text-decoration: underline;
-        }
-        .cta-link:focus {
-            outline: 3px solid #c39eff;
-            outline-offset: 2px;
-            text-decoration: underline;
-        }
-
-        /* ♿ Screen Reader Only Utility */
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
-        }
-
-        /* 🔝 Fixed Back to Top Control */
-        .back-to-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            background-color: #c39eff; 
-            color: #120e16;
-            border: 2px solid #32273e;
-            border-radius: 8px;
-            padding: 0.75rem 1.2rem;
-            font-weight: 700;
-            font-size: 1rem;
-            cursor: pointer;
-            z-index: 999;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.3s, transform 0.3s, background-color 0.2s;
-            pointer-events: none; 
-        }
-
-        .back-to-top.visible {
-            opacity: 1;
-            transform: translateY(0);
-            pointer-events: auto; 
-        }
-
-        .back-to-top:hover {
-            background-color: #ddc7ff;
-        }
-        .back-to-top:focus {
-            background-color: #ddc7ff;
-            outline: 3px solid #ffffff;
-            outline-offset: 2px;
-        }
-
-        /* 👣 Page Footer Area */
-        footer {
-            max-width: 850px;
-            margin: 3rem auto 1.5rem auto;
-            border-top: 1px solid #32273e;
-            padding-top: 2rem;
-            font-size: 0.9rem;
-            color: #bdafcc;
-            text-align: center;
-        }
-
-        .footer-nav {
-            margin-top: 0.75rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.25rem;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .footer-links a {
-            color: #bdafcc;
-            text-decoration: none;
-            font-size: 0.9rem;
-            padding: 0.5rem 0.75rem; 
-            display: inline-block;
-            transition: color 0.2s;
-        }
-
-        .footer-links a:hover {
-            color: #c39eff;
-            text-decoration: underline;
-        }
-        .footer-links a:focus {
-            color: #c39eff;
-            outline: 3px solid #c39eff;
-            outline-offset: 2px;
-        }
-    </style>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
@@ -448,10 +16,10 @@ main {
                 <img src="images/logo.png" alt="" class="header-logo" onerror="this.style.display='none'">
             </a>
             
-            <div style="display: block; text-align: left;">
-                <span style="display: block; font-size: 1.8rem; font-weight: 700; color: #ffffff; margin: 0; line-height: 1.2;">AccessAble Accessibility Consulting</span>
-                <span style="display: block; font-size: 0.95rem; color: #bdafcc; margin: 0.3rem 0 0 0; line-height: 1.4;">Ruth Kearney, B.A, CIP | Certified Accessibility Consultant</span>
-            </div>
+            <div class="brand-text">
+    <h1 class="brand-title">AccessAble Accessibility Consulting</h1>
+    <span class="brand-subtitle">Ruth Kearney, B.A, CIP | Certified Accessibility Consultant</span>
+</div>
         </div>
         
         <div class="nav-container">
@@ -589,29 +157,27 @@ main {
 
         <section class="cta-banner" aria-label="Intake Channels">
             <h3>Ready to start?</h3>
-            <p style="margin-bottom: 1.5rem;">To ensure personalized service and a manageable workload, all client intakes are structured to respect your time and communication preferences.</p>
+            <p class="intro-text">To ensure personalized service and a manageable workload, all client intakes are structured to respect your time and communication preferences.</p>
             
-           <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+           <div class="cta-grid">
                 
-                <div style="flex: 1; min-width: 260px; background-color: #141619; border: 1px solid #32273e; padding: 1.5rem; border-radius: 8px;">
-                    <h3 style="color: #ffffff; margin-bottom: 0.5rem; font-size: 1.1rem;">Let's Chat First</h3>
-                    <p style="font-size: 0.95rem; color: #d2c4e3; margin-bottom: 1rem;">Book a free, 15-minute introductory consultation to discuss your needs.</p>
+                <div class="cta-card">
+                    <h3>Let's Chat First</h3>
+                    <p>Book a free, 15-minute introductory consultation to discuss your needs.</p>
                     <a href="https://calendar.app.google/gNQzkk5dsByMoFer8" 
                        target="_blank" 
                        rel="noopener" 
-                       class="cta-link" 
-                       style="display: inline-block; font-size: 1.2rem;">Schedule Free Consultation<span class="sr-only"> (opens in a new tab)</span> <svg style=" height: 1.2rem; width: 1.2rem; fill: currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3zm-4 2H4v14h14v-6h2v8H2V3h8v2z"/></svg>
+                       class="cta-link">Schedule Free Consultation<span class="sr-only"> (opens in a new tab)</span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3zm-4 2H4v14h14v-6h2v8H2V3h8v2z"/></svg>
                     </a>
                 </div>
 
-                <div style="flex: 1; min-width: 260px; background-color: #141619; border: 1px solid #32273e; padding: 1.5rem; border-radius: 8px;">
-                    <h3 style="color: #ffffff; margin-bottom: 0.5rem; font-size: 1.1rem;">Request a Project Quote</h3>
-                    <p style="font-size: 0.95rem; color: #d2c4e3; margin-bottom: 1rem;">Have a specific project or audit scope in mind? Submit your parameters directly.</p>
+                <div class="cta-card">
+                    <h3>Request a Project Quote</h3>
+                    <p>Have a specific project or audit scope in mind? Submit your parameters directly.</p>
                     <a href="https://forms.gle/bXz4GAgffQhFirALA" 
                        target="_blank" 
                        rel="noopener" 
-                       class="cta-link" 
-                       style="display: inline-block; font-size: 1.3rem;">Fill Out Quote Request<span class="sr-only"> (opens in a new tab)</span> <svg style=" height: 1.2rem; width: 1.2rem; fill: currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3zm-4 2H4v14h14v-6h2v8H2V3h8v2z"/></svg>
+                       class="cta-link cta-link-large">Fill Out Quote Request<span class="sr-only"> (opens in a new tab)</span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3zm-4 2H4v14h14v-6h2v8H2V3h8v2z"/></svg>
                     </a>
                 </div>
 
@@ -650,7 +216,7 @@ main {
                 <a href="accessibility.html">Accessibility Statement</a>
             </div>
             
-            <div class="social-group" style="margin-top: 1.5rem; justify-content: center;" aria-label="Social Media Context Links">
+            <div class="social-group footer-social-group" aria-label="Social Media Context Links">
                 <a href="https://www.instagram.com/accessableaccessibility/" class="social-link" target="_blank" rel="noopener" aria-label="Visit our Instagram profile (opens in a new tab)">
                     <svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
                     <svg class="external-glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3zm-4 2H4v14h14v-6h2v8H2V3h8v2z"/></svg>

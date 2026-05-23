@@ -200,6 +200,93 @@ main {
     margin-bottom: 3rem;
 }
 
+.section-description {
+    color: #bdafcc;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.services-section {
+    margin-bottom: 4rem;
+    scroll-margin-top: 2rem;
+}
+
+.card-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.card {
+    background-color: #1d1824;
+    border: 1px solid #32273e;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.card h3 {
+    font-size: 1.35rem;
+    color: #ffffff;
+}
+
+.price {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #c39eff;
+    white-space: nowrap;
+}
+
+.card p {
+    color: #f3f0f7;
+    font-size: 1.05rem;
+    margin-bottom: 0.75rem;
+}
+
+.meta-info {
+    list-style: none;
+    font-size: 0.95rem;
+    color: #f3f0f7;
+    border-top: 1px solid #32273e;
+    padding-top: 1rem;
+    margin-top: 1rem;
+}
+
+.meta-info li {
+    margin-bottom: 0.5rem;
+}
+
+.meta-info strong {
+    color: #ffffff;
+}
+
+.human-layer-box {
+    background-color: #1d1824;
+    border-left: 6px solid #c39eff;
+    padding: 2.2rem;
+    border-radius: 12px;
+    margin: 4rem 0;
+}
+
+.human-layer-box h3 {
+    font-size: 1.4rem;
+    color: #c39eff;
+    margin-bottom: 1rem;
+}
+
+.human-layer-box p {
+    font-size: 1.1rem;
+    color: #f3f0f7;
+}
+
 .home-section {
     margin-bottom: 3.5rem;
 }
@@ -319,6 +406,92 @@ main {
     color: #f3f0f7;
     font-size: 1.1rem;
     margin-bottom: 1.5rem;
+}
+
+.cta-banner {
+    background-color: #1d1824;
+    border: 1px solid #32273e;
+    border-left: 6px solid #c39eff;
+    padding: 2.5rem;
+    border-radius: 12px;
+    margin-top: 2rem;
+}
+
+.cta-banner h3 {
+    font-size: 1.6rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+
+.cta-banner p {
+    margin-bottom: 1.2rem;
+    color: #f3f0f7;
+    font-size: 1.1rem;
+}
+
+.cta-banner .intro-text {
+    margin-bottom: 1.5rem;
+}
+
+.cta-grid {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+
+.cta-card {
+    flex: 1;
+    min-width: 260px;
+    background-color: #141619;
+    border: 1px solid #32273e;
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.cta-card h3 {
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.cta-card p {
+    font-size: 0.95rem;
+    color: #d2c4e3;
+    margin-bottom: 1rem;
+}
+
+.cta-link {
+    color: #c39eff;
+    text-decoration: none;
+    font-weight: 700;
+    display: inline-block;
+    font-size: 1.2rem;
+}
+
+.cta-link.cta-link-large {
+    font-size: 1.3rem;
+}
+
+.cta-link:hover {
+    text-decoration: underline;
+}
+
+.cta-link:focus {
+    outline: 3px solid #c39eff;
+    outline-offset: 2px;
+    text-decoration: underline;
+}
+
+.cta-link svg {
+    height: 1.2rem;
+    width: 1.2rem;
+    fill: currentColor;
+}
+
+.footer-social-group {
+    margin-top: 1.5rem;
+    justify-content: center;
 }
 
 /* 🎛️ Button Configurations */
