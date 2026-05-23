@@ -330,6 +330,33 @@ main {
             text-decoration: underline;
         }
 
+	.cta-link {
+            color: #c39eff;
+            text-decoration: none;
+            font-weight: 700;
+        }
+        .cta-link:hover {
+            text-decoration: underline;
+        }
+        .cta-link:focus {
+            outline: 3px solid #c39eff;
+            outline-offset: 2px;
+            text-decoration: underline;
+        }
+
+        /* ♿ Screen Reader Only Utility */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
         /* 🔝 Fixed Back to Top Control */
         .back-to-top {
             position: fixed;
@@ -429,13 +456,14 @@ main {
         
         <div class="nav-container">
             <nav aria-label="Main Navigation">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="services.html" class="active" aria-current="page">Services & Pricing</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="accessibility.html">Accessibility</a></li>
-                </ul>
+<ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services & Pricing</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="resources.html">Resources</a></li>
+    <li><a href="accessibility.html">Accessibility</a></li>
+</ul>
             </nav>
 
             <div class="social-group" aria-label="Social Media Context Links">
@@ -563,37 +591,32 @@ main {
             <h3>Ready to start?</h3>
             <p style="margin-bottom: 1.5rem;">To ensure personalized service and a manageable workload, all client intakes are structured to respect your time and communication preferences.</p>
             
-            <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+           <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
                 
                 <div style="flex: 1; min-width: 260px; background-color: #141619; border: 1px solid #32273e; padding: 1.5rem; border-radius: 8px;">
-                    <h4 style="color: #ffffff; margin-bottom: 0.5rem; font-size: 1.1rem;">Let's Chat First</h4>
-                    <p style="font-size: 0.95rem; color: #bdafcc; margin-bottom: 1rem;">Book a free, 15-minute introductory consultation to discuss your needs.</p>
+                    <h3 style="color: #ffffff; margin-bottom: 0.5rem; font-size: 1.1rem;">Let's Chat First</h3>
+                    <p style="font-size: 0.95rem; color: #d2c4e3; margin-bottom: 1rem;">Book a free, 15-minute introductory consultation to discuss your needs.</p>
                     <a href="https://calendar.app.google/gNQzkk5dsByMoFer8" 
                        target="_blank" 
                        rel="noopener" 
                        class="cta-link" 
-                       style="display: inline-block; font-size: 1.3rem;"
-                       aria-label="Book Free Consultation (opens in new tab)">Schedule Free Consultation <svg style=" height: 1.2rem; width: 1.2rem; fill: currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3zm-4 2H4v14h14v-6h2v8H2V3h8v2z"/></svg>
-
-					   </a>
+                       style="display: inline-block; font-size: 1.2rem;">Schedule Free Consultation<span class="sr-only"> (opens in a new tab)</span> <svg style=" height: 1.2rem; width: 1.2rem; fill: currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3zm-4 2H4v14h14v-6h2v8H2V3h8v2z"/></svg>
+                    </a>
                 </div>
 
                 <div style="flex: 1; min-width: 260px; background-color: #141619; border: 1px solid #32273e; padding: 1.5rem; border-radius: 8px;">
-                    <h4 style="color: #ffffff; margin-bottom: 0.5rem; font-size: 1.1rem;">Request a Project Quote</h4>
-                    <p style="font-size: 0.95rem; color: #bdafcc; margin-bottom: 1rem;">Have a specific project or audit scope in mind? Submit your parameters directly.</p>
+                    <h3 style="color: #ffffff; margin-bottom: 0.5rem; font-size: 1.1rem;">Request a Project Quote</h3>
+                    <p style="font-size: 0.95rem; color: #d2c4e3; margin-bottom: 1rem;">Have a specific project or audit scope in mind? Submit your parameters directly.</p>
                     <a href="https://forms.gle/bXz4GAgffQhFirALA" 
                        target="_blank" 
                        rel="noopener" 
                        class="cta-link" 
-                       style="display: inline-block; font-size: 1.3rem;"
-                       aria-label="Request a Quote (opens in new tab)">Fill Out Quote Request <svg style=" height: 1.2rem; width: 1.2rem; fill: currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3zm-4 2H4v14h14v-6h2v8H2V3h8v2z"/></svg>
-					   </a>
+                       style="display: inline-block; font-size: 1.3rem;">Fill Out Quote Request<span class="sr-only"> (opens in a new tab)</span> <svg style=" height: 1.2rem; width: 1.2rem; fill: currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3zm-4 2H4v14h14v-6h2v8H2V3h8v2z"/></svg>
+                    </a>
                 </div>
 
             </div>
 
-            <p style="font-size: 1rem; color: #f3f0f7; margin-bottom: 0.5rem;">Prefer direct communication? Email me at: <a href="mailto:ruth@accessableaccessibility.ca" class="cta-link">ruth@accessableaccessibility.ca</a></p>
-            <p style="font-size: 0.9rem; color: #bdafcc; border-top: 1px solid #32273e; padding-top: 1rem; margin-top: 1rem;">Upon confirmation of service parameters, you will receive a Wave invoice. Following payment processing, a private confirmation link will secure your session reservation.</p>
         </section>
     </main>
 

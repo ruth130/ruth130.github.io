@@ -127,15 +127,15 @@
         }
 
         nav a {
-    color: #f3f0f7;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1.05rem;
-    padding: 0.8rem 0.6rem; /* Increases bounding box over 44px */
-    display: inline-block;
-    border-bottom: 2px solid transparent;
-    transition: color 0.2s, border-color 0.2s;
-}
+            color: #f3f0f7;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            padding: 0.8rem 0.6rem; /* Increases bounding box over 44px */
+            display: inline-block;
+            border-bottom: 2px solid transparent;
+            transition: color 0.2s, border-color 0.2s;
+        }
 
         nav a:hover {
             color: #c39eff;
@@ -206,12 +206,12 @@
         }
 
         /* Core Main Layout */
-main {
-    /* Explicitly limits block layouts to ~75 characters wide */
-    max-width: 75ch; 
-    margin: 0 auto;
-    padding-bottom: 5rem;
-}
+        main {
+            /* Explicitly limits block layouts to ~75 characters wide */
+            max-width: 75ch; 
+            margin: 0 auto;
+            padding-bottom: 5rem;
+        }
 
         .page-title {
             margin: 3rem 0 1rem 0;
@@ -257,7 +257,10 @@ main {
         }
 
         .btn {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
             background-color: #c39eff;
             color: #120e16;
             padding: 0.8rem 1.8rem;
@@ -277,6 +280,19 @@ main {
             background-color: #ddc7ff;
             outline: 3px solid #ffffff;
             outline-offset: 2px;
+        }
+
+        /* ♿ Robust Screen Reader Only Element Mask */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
         }
 
         .direct-info {
@@ -411,12 +427,13 @@ main {
         <div class="nav-container">
             <nav aria-label="Main Navigation">
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="services.html">Services & Pricing</a></li>
-                    <li><a href="contact.html" aria-current="page">Contact</a></li>
-                    <li><a href="accessibility.html">Accessibility</a></li>
-                </ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services & Pricing</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="resources.html">Resources</a></li>
+    <li><a href="accessibility.html">Accessibility</a></li>
+</ul>
             </nav>
 
             <div class="social-group" aria-label="Social Media Context Links">
@@ -440,23 +457,25 @@ main {
         <h1 class="page-title">Connect with AccessAble</h1>
         <p class="section-intro">Get in touch!</p>
 
-        <div class="contact-grid">
+       <div class="contact-grid">
             <div class="contact-card">
                 <div>
-                    <h3>Introductory Assessment</h3>
+                    <h3>Free Consultation</h3>
                     <p>Schedule a live, free 15-minute video call via Google Calendar to chat about your needs.</p>
                 </div>
-                <a href="https://calendar.app.google/gNQzkk5dsByMoFer8" class="btn" target="_blank" rel="noopener" aria-label="Book Free Consultation (opens in new tab)">Book Free Consultation <svg style=" height: 1.2rem; width: 1.2rem; fill: currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3zm-4 2H4v14h14v-6h2v8H2V3h8v2z"/></svg>
-</a>
+                <a href="https://calendar.app.google/gNQzkk5dsByMoFer8" class="btn" target="_blank" rel="noopener">Book Free Consultation<span class="sr-only"> (opens in a new tab)</span>
+                    <svg style="height: 1.2rem; width: 1.2rem; fill: currentColor;" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3zm-4 2H4v14h14v-6h2v8H2V3h8v2z"/></svg>
+                </a>
             </div>
 
             <div class="contact-card">
                 <div>
-                    <h3>Project Scoping Form</h3>
+                    <h3>Request a Quote</h3>
                     <p>Tight schedule, or prefer asynchronous communication? Fill out our contact form!</p>
                 </div>
-                <a href="https://forms.gle/sRsDdfAWFRaeogPX8" class="btn" target="_blank" rel="noopener" aria-label="Request a Quote (opens in new tab)">Request a Quote <svg style=" height: 1.2rem; width: 1.2rem; fill: currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3zm-4 2H4v14h14v-6h2v8H2V3h8v2z"/></svg>
-</a>
+                <a href="https://forms.gle/sRsDdfAWFRaeogPX8" class="btn" target="_blank" rel="noopener">Request a Quote<span class="sr-only"> (opens in a new tab)</span>
+                    <svg style="height: 1.2rem; width: 1.2rem; fill: currentColor;" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3zm-4 2H4v14h14v-6h2v8H2V3h8v2z"/></svg>
+                </a>
             </div>
         </div>
 
