@@ -1,0 +1,1105 @@
+/* ==========================================================================
+   🎨 Theme System Variables (Strict WCAG 2.2 AAA Compliant)
+   ========================================================================== */
+:root {
+    /* 🌙 Rich Multi-Tonal Purple Dark Mode */
+    --bg-body: #0f0d13;          
+    --bg-card: #1c1824;          
+    
+    /* Typography Scale - Enhanced to strictly clear 7:1 Contrast */
+    --text-main: #f5f2fa;        
+    --text-muted: #fbf9fe;       
+    
+    /* 🔮 Uniform Heading System */
+    --text-h1: #c39eff;          
+    --text-h2: #c39eff;          
+    --text-h3: #c39eff;          
+    --text-brand: #c39eff;       
+    --text-author: #c39eff;      
+    
+    /* Borders & Dividers - Fixed to meet 3:1 Non-text Contrast against #0f0d13 */
+    --border-color: #7b6899;     
+    --border-hover: #ffffff;     
+    --border-feature: #c39eff;   
+
+    /* 🎛️ UI Accent System for Buttons */
+    --accent-primary: #c39eff;   
+    --accent-hover: #ffffff;     
+    --btn-text: #05020a;         
+
+    /* 🌗 Theme Switcher Button Specs */
+    --toggle-btn-bg: #ffffff;
+    --toggle-btn-text: #37006b; 
+    --toggle-btn-border: #e2daf0;
+
+    /* ✨ High-Contrast Focus Indicators (Dark Mode Defaults) */
+    --focus-outline: #ffffff;
+    --focus-ring: rgba(255, 255, 255, 0.5);
+    --focus-bg-subtle: rgba(195, 158, 255, 0.06);
+}
+
+[data-theme="light"] {
+    /* ☀️ Premium Multi-Tonal Purple Light Mode */
+    --bg-body: #fcfaff;          
+    --bg-card: #f6f0fc;          
+    
+    /* Typography Scale - Darkened to strictly exceed AAA 7:1 against card & body */
+    --text-main: #251c33;        
+    --text-muted: #20152e; 
+    
+    /* 🔮 Headings */
+    --text-h1: #2a0054;          
+    --text-h2: #2a0054;          
+    --text-h3: #2a0054;          
+    --text-brand: #2a0054;
+    --text-author: #2a0054;      
+    
+    /* Borders & Dividers - Meets 3:1 against #fcfaff */
+    --border-color: #6d548c;     
+    --border-hover: #2a0054;
+    --border-feature: #441380;   
+
+    /* 🎛️ UI Accent System for Buttons */
+    --accent-primary: #441380;   
+    --accent-hover: #2a0054;     
+    --btn-text: #ffffff;         
+
+    /* 🌗 Theme Switcher Button Specs */
+    --toggle-btn-bg: #1c1824;
+    --toggle-btn-text: #c39eff;  
+    --toggle-btn-border: #3b2f4c;
+
+    /* ✨ High-Contrast Focus Indicators (Light Mode Explicit Overrides) */
+    --focus-outline: #2a0054;
+    --focus-ring: rgba(42, 0, 84, 0.5);
+    --focus-bg-subtle: rgba(68, 19, 128, 0.12);
+}
+
+/* ==========================================================================
+   🧱 Core Structural Globals
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    /* Keeps keyboard-focused elements clear of the fixed Help and Top buttons (WCAG 2.4.11 / 2.4.12) */
+    scroll-padding-bottom: 7rem;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--bg-body); 
+    color: var(--text-main); 
+    line-height: 1.6;
+    padding: 0 1.5rem;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+h1, h2, h3, h4 {
+    color: var(--text-h1);
+    transition: color 0.2s;
+}
+
+abbr {
+    text-decoration: underline dotted;
+    cursor: help;
+}
+
+/* ☀️ Explicit Light Mode Contrast Enforcement Rules */
+[data-theme="light"] .services-section h2 {
+    color: #4b1a8a; 
+    border-left-color: #7033cc;
+}
+
+[data-theme="light"] .price {
+    color: #6322b8; 
+    font-weight: 800;
+}
+
+[data-theme="light"] .human-layer-box h3,
+[data-theme="light"] .cta-banner h3 {
+    color: #4b1a8a;
+}
+
+[data-theme="light"] .human-layer-box {
+    border-left-color: #7033cc;
+}
+
+/* 🚫 Reduced Motion Rules */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto !important;
+    }
+    .back-to-top, nav a, .btn, .social-link, .theme-toggle-btn, .skip-link {
+        transition: none !important;
+    }
+}
+
+/* ♿ Accessibility Utilities */
+.skip-link {
+    position: absolute;
+    top: -60px;
+    left: 0;
+    background: var(--accent-primary);
+    color: var(--btn-text);
+    padding: 12px 24px;
+    z-index: 100;
+    font-weight: bold;
+    transition: top 0.2s;
+    text-decoration: none;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+    top: 0;
+}
+
+.visually-hidden {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+/* ==========================================================================
+   🏠 Header & Global Navigation Layout
+   ========================================================================== */
+header {
+    max-width: 850px;
+    margin: 2.5rem auto; 
+    border-bottom: 2px solid var(--border-color); 
+    padding-bottom: 2rem;
+    transition: border-color 0.2s;
+}
+
+.header-brand {
+    display: flex; 
+    flex-wrap: wrap;
+    align-items: center; 
+    gap: 1.5rem; 
+    text-decoration: none; 
+    margin-bottom: 1.5rem; 
+    border: none;
+}
+
+.logo-link {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 6px;
+    min-width: 48px;
+    min-height: 48px;
+}
+
+.header-logo {
+    height: 140px; 
+    max-width: 100%;
+    object-fit: contain;
+    width: auto; 
+    display: block; 
+    border: 2px solid var(--border-color);
+    border-radius: 6px;
+    padding: 4px;
+    background-color: var(--bg-card);
+}
+
+.brand-text {
+    display: block; 
+    text-align: left;
+    min-width: 0;
+}
+
+.brand-title {
+    display: block;
+    font-size: 2.2rem;
+    color: var(--text-brand); 
+    font-weight: bold;
+    line-height: 1.2;
+    transition: color 0.2s;
+}
+
+.brand-subtitle {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    margin-top: 0.4rem;
+    display: block;
+    transition: color 0.2s;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem; 
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+nav a {
+    color: var(--text-main);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.05rem;
+    padding: 0.8rem 0.4rem; 
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid transparent; 
+    min-height: 48px;  
+    border-radius: 4px;
+    transition: color 0.2s, border-bottom-color 0.2s, background-color 0.2s;
+}
+
+nav a:hover, nav a.active {
+    color: var(--text-h1);
+}
+
+nav a:hover {
+    border-bottom-color: var(--text-h1);
+}
+
+nav a.active {
+    border-bottom-color: var(--border-hover);
+    font-weight: 700;
+}
+
+.header-actions-area {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem; 
+    flex-wrap: wrap;
+}
+
+.theme-toggle-btn {
+    background-color: var(--toggle-btn-bg);
+    color: var(--toggle-btn-text);
+    border: 2px solid var(--toggle-btn-border);
+    padding: 0.6rem 1.1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-width: 48px;
+    min-height: 48px;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.theme-toggle-btn:hover {
+    border-color: var(--border-hover);
+}
+
+.social-group {
+    display: flex;
+    gap: 0.5rem; 
+    align-items: center;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    color: var(--text-muted);
+    border-radius: 50%;
+    transition: color 0.2s, background-color 0.2s;
+}
+
+.social-link:hover {
+    color: var(--text-h1);
+}
+
+.brand-icon {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+}
+
+/* ==========================================================================
+   📖 Core Layout Framework
+   ========================================================================== */
+main {
+    max-width: 850px;       
+    margin: 0 auto;         
+    padding-bottom: 5rem;
+    width: 100%;
+}
+
+.page-title {
+    margin: 3rem 0 1rem 0;
+    font-size: 2.2rem;
+}
+
+.section-intro {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    transition: color 0.2s;
+}
+
+.glossary-container {
+    margin-bottom: 2.5rem;
+}
+
+.glossary-details {
+    background-color: var(--bg-card);
+    border: 2px solid var(--border-color);
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.glossary-details summary {
+    font-weight: 700;
+    cursor: pointer;
+    color: var(--text-h2);
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.glossary-list {
+    list-style: none;
+    margin-top: 1rem;
+    padding-left: 0;
+}
+
+.glossary-list li {
+    margin-bottom: 0.75rem;
+}
+
+/* ==========================================================================
+   🏘️ Sections, Cards & Inline Context Hyperlinks
+   ========================================================================== */
+.home-section {
+    margin-bottom: 3.5rem;
+}
+
+.home-section h2 {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+    border-left: 5px solid var(--text-h2);
+    padding-left: 0.75rem;
+}
+
+.home-section p {
+    font-size: 1.1rem;
+    margin-bottom: 1.2rem;
+    color: var(--text-main);
+}
+
+.home-section p a {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    color: var(--text-brand);
+    font-weight: 700;
+    padding: 0.1rem 0.3rem;
+    border-radius: 4px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.home-section p a:hover {
+    color: var(--text-h1);
+}
+
+.solutions-container {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.solution-card, .testimonial-card, .feature-card {
+    background-color: var(--bg-card);
+    border: 2px solid var(--border-color);
+    padding: 2.2rem;
+    border-radius: 12px;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.solutions-container .solution-card {
+    flex: 1;
+    min-width: min(280px, 100%); 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.solution-card h3 {
+    font-size: 1.35rem;
+    margin-bottom: 0.75rem;
+}
+
+.solution-card p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    margin-bottom: 1.8rem;
+    transition: color 0.2s;
+}
+
+/* 💬 Testimonials */
+.testimonials-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.testimonial-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.testimonial-quote {
+    color: var(--text-main);
+    font-size: 1.1rem;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    border-top: 2px solid var(--border-color);
+    padding-top: 1.2rem;
+    transition: border-color 0.2s;
+}
+
+.author-meta {
+    display: flex;
+    flex-direction: column;
+}
+
+.author-name {
+    font-weight: 700;
+    color: var(--text-author); 
+    font-size: 1.1rem;
+    transition: color 0.2s;
+}
+
+.author-role {
+    font-style: normal;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-top: 0.15rem;
+    transition: color 0.2s;
+}
+
+/* ⭐ Highlight Feature Card Section */
+.feature-card {
+    border-left: 6px solid var(--border-feature);
+    padding: 2.5rem;
+    margin-top: 3.5rem;
+}
+
+.feature-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: var(--text-h2);
+}
+
+.feature-card p {
+    color: var(--text-main);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* 🎛️ Action Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--accent-primary);
+    color: var(--btn-text);
+    padding: 0.8rem 1.8rem;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 1.05rem;
+    border: 2px solid transparent;
+    min-height: 48px;
+    min-width: 48px;
+    transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+    text-align: center;
+    width: 100%; 
+}
+
+.btn:hover {
+    background-color: var(--accent-hover);
+    color: var(--bg-body);
+    border-color: var(--border-hover);
+}
+
+.btn-inline {
+    width: auto;
+    min-width: 210px;
+    text-align: center;
+}
+
+/* 🔝 Back to Top */
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: var(--accent-primary); 
+    color: var(--btn-text);
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0.75rem 1.2rem;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    display: none;        
+    min-width: 48px;
+    min-height: 48px;
+    transform: translateY(20px);
+    transition: opacity 0.2s, transform 0.2s, background-color 0.15s, color 0.15s, box-shadow 0.15s;
+}
+
+.back-to-top.visible {
+    display: inline-flex; 
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Help Support Panel Link */
+.consistent-help-panel {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    z-index: 99;
+}
+
+.consistent-help-link {
+    background-color: var(--bg-card);
+    border: 2px solid var(--border-color);
+    color: var(--text-main);
+    text-decoration: none;
+    padding: 0.75rem 1.2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 48px;
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.consistent-help-link:hover {
+    border-color: var(--border-hover);
+    color: var(--text-h1);
+}
+
+.consistent-help-icon {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+/* ==========================================================================
+   👣 Page Footer Layout Structure
+   ========================================================================== */
+.site-footer {
+    max-width: 850px;
+    margin: 5rem auto 2.5rem auto; 
+    border-top: 2px solid var(--border-color);
+    padding-top: 2.5rem;
+    transition: border-color 0.2s;
+    width: 100%;
+}
+
+.footer-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem; 
+}
+
+.footer-primary-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem; 
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-primary-nav a {
+    color: var(--text-main);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.05rem;
+    padding: 0.8rem 0.4rem; 
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid transparent; 
+    min-height: 48px;  
+    border-radius: 4px;
+    transition: color 0.2s, border-bottom-color 0.2s, background-color 0.2s;
+}
+
+.footer-primary-nav a:hover {
+    color: var(--text-h1);
+    border-bottom-color: var(--text-h1);
+}
+
+.footer-social-group {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Standalone Accessibility Statement Row */
+.footer-statement-row {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.footer-statement-link {
+    color: var(--text-main);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    font-weight: 600;
+    font-size: 1.05rem;
+    padding: 0.6rem 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    border-radius: 4px;
+    transition: color 0.2s, background-color 0.2s, text-decoration 0.2s;
+}
+
+.footer-statement-link:hover {
+    color: var(--text-h1);
+}
+
+.footer-copyright-text {
+    font-size: 1rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 0.25rem;
+}
+
+/* ==========================================================================
+   📱 Media Breakpoint Responsiveness Query Matrices
+   ========================================================================== */
+@media (max-width: 650px) {
+    .nav-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+    .header-actions-area {
+        justify-content: center;
+        width: 100%;
+    }
+    .footer-primary-nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .footer-primary-nav a {
+        padding: 0.4rem;
+    }
+}
+
+/* ==========================================================================
+   🎯 Consolidated Hover & Interactivity Cascade
+   ========================================================================== */
+
+/* 1. Interactive solid-fill element blocks (Buttons, Toggles) */
+button:hover,
+.btn:hover,
+.theme-toggle-btn:hover,
+.back-to-top:hover {
+    background-color: var(--accent-hover) !important;
+    color: var(--bg-body) !important; 
+    border-color: var(--border-hover) !important;
+}
+
+/* 2. Structural text links and structural navigation items */
+nav a:hover,
+.social-link:hover,
+.consistent-help-link:hover,
+.footer-primary-nav a:hover,
+.footer-statement-link:hover,
+.glossary-details summary:hover,
+.home-section p a:hover,
+a[href^="http://"]:hover,
+a[href^="https://"]:hover {
+    background-color: var(--focus-bg-subtle) !important;
+    color: var(--text-h1) !important;
+}
+
+/* ==========================================================================
+   ♿ Strict WCAG 2.2 AAA Double-Ring Global Focus Indicators
+   ========================================================================== */
+
+/* 1. Global Focus Indicator Core Styles
+   Enforces an unmistakable high-contrast tracking border + clear secondary shadow ring.
+   Guarantees absolute clarity on any dark or light multi-tonal platform layer.
+*/
+a:focus, button:focus, summary:focus, input:focus, [tabindex="0"]:focus,
+a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex="0"]:focus-visible {
+    outline: 3px solid var(--focus-outline) !important;
+    outline-offset: 3px !important;
+    box-shadow: 0 0 0 6px var(--focus-ring) !important;
+}
+
+/* 2. Focus-State Structural Block Refinements (Buttons) */
+button:focus, button:focus-visible,
+.btn:focus, .btn:focus-visible,
+.theme-toggle-btn:focus, .theme-toggle-btn:focus-visible,
+.back-to-top:focus, .back-to-top:focus-visible {
+    background-color: var(--accent-hover) !important;
+    color: var(--bg-body) !important; 
+    border-color: var(--border-hover) !important;
+}
+
+/* 3. Focus-State Text Link Overrides (Ensures consistent non-destructive visual responses) */
+nav a:focus, nav a:focus-visible,
+.social-link:focus, .social-link:focus-visible,
+.consistent-help-link:focus, .consistent-help-link:focus-visible,
+.footer-primary-nav a:focus, .footer-primary-nav a:focus-visible,
+.footer-statement-link:focus, .footer-statement-link:focus-visible,
+.glossary-details summary:focus, .glossary-details summary:focus-visible,
+.home-section p a:focus, .home-section p a:focus-visible,
+a[href^="http://"]:focus, a[href^="http://"]:focus-visible,
+a[href^="https://"]:focus, a[href^="https://"]:focus-visible {
+    background-color: var(--focus-bg-subtle) !important;
+    color: var(--text-h1) !important;
+    text-decoration: none !important;
+}
+
+/* ==========================================================================
+   👤 Profile Section Styling & Layout Mechanics
+   ========================================================================== */
+.profile-layout-container {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 5.5rem;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.profile-figure {
+    flex: 1;
+    min-width: min(280px, 100%);
+    max-width: 380px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 var(--space-md) 0;
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    background-color: var(--bg-card);
+    overflow: hidden;
+}
+
+.profile-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.profile-caption {
+    padding: 1rem 0.5rem;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-brand);
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+}
+
+.profile-text-content {
+    flex: 2;
+    min-width: min(320px, 100%);
+}
+
+.profile-subheading-first {
+    margin-top: 0;
+    font-size: 1.8rem;
+    color: var(--text-h2);
+}
+
+/* Push "Lived Experience" lower down the profile text panel */
+.profile-subheading-spaced {
+    margin-top: 4rem;
+    font-size: 1.8rem;
+    color: var(--text-h2);
+}
+
+
+/* ==========================================================================
+   🎛️ Conversion / Call-To-Action (CTA) Component 
+   ========================================================================== */
+.ready-to-start-section {
+    margin-top: 4rem;
+}
+
+.cta-main-card {
+    padding: 2.5rem;
+    margin-top: 0;
+}
+
+.cta-heading {
+    border: none !important;
+    padding-left: 0 !important;
+    font-size: 1.9rem;
+    margin-bottom: 1rem;
+    color: var(--text-main);
+}
+
+.cta-intro-text {
+    color: var(--text-main);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    max-width: 730px;
+}
+
+.cta-split-container {
+    display: flex;
+    gap: 3rem; /* Spacing channel between inner boxes */
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+}
+
+/* --- THEME FIX: Solid, intentional colors instead of transparent grays --- */
+.cta-inner-box {
+    flex: 1;
+    min-width: min(260px, 100%);
+    background-color: #121824; /* Rich deep navy/slate for Dark Mode */
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Light Mode Override */
+[data-theme="light"] .cta-inner-box {
+    background-color: #f4f7fa; /* Crisp, clean off-white/light blue tint for Light Mode */
+    border-color: var(--border-color);
+}
+
+.cta-box-title {
+    font-size: 1.25rem;
+    color: var(--text-brand); /* Uses your main brand color to pop */
+    margin-bottom: 0.75rem;
+}
+
+.cta-box-description {
+    font-size: 1rem;
+    color: var(--text-main);
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.cta-fallback-text {
+    margin-top: 2rem;
+    margin-bottom: 0;
+    font-size: 1.05rem;
+    text-align: left;
+    color: var(--text-main);
+}
+
+.cta-fallback-link {
+    text-decoration: underline;
+    color: var(--text-brand);
+    font-weight: 700;
+}
+
+/* Custom formatting row for standalone glossary link line on about page */
+.profile-glossary-row {
+    margin-top: 1.5rem;
+    margin-bottom: 0;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   💼 Services & Pricing Page
+   ========================================================================== */
+.services-section {
+    scroll-margin-top: 1.5rem;
+}
+
+.service-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.service-card {
+    background-color: var(--bg-card);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem 2.2rem;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.service-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    margin-bottom: 0.9rem;
+}
+
+.service-card-header h3 {
+    font-size: 1.35rem;
+}
+
+.price {
+    color: var(--text-h1);
+    font-size: 1.25rem;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.service-card p {
+    color: var(--text-main);
+    font-size: 1.05rem;
+    margin-bottom: 0.9rem;
+}
+
+.service-card p:last-child {
+    margin-bottom: 0;
+}
+
+.meta-info {
+    list-style: none;
+    margin-top: 1.2rem;
+    padding-top: 1.1rem;
+    border-top: 2px solid var(--border-color);
+}
+
+.meta-info li {
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem;
+}
+
+.meta-info li:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 650px) {
+    .service-card {
+        padding: 1.5rem;
+    }
+}
+
+
+/* ==========================================================================
+   ♿ Accessibility Statement Page
+   ========================================================================== */
+.statement-list {
+    list-style: disc;
+    padding-left: 1.5rem;
+    margin-bottom: 1.2rem;
+}
+
+.statement-list li {
+    font-size: 1.1rem;
+    margin-bottom: 0.9rem;
+    padding-left: 0.3rem;
+}
+
+.statement-list li::marker {
+    color: var(--text-h1);
+}
+
+
+/* ==========================================================================
+   📐 Reflow Safeguards (WCAG 1.4.10 - no sideways scrolling at 320px)
+   ========================================================================== */
+main a,
+.site-footer a {
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 650px) {
+    .feature-card,
+    .cta-main-card,
+    .solution-card {
+        padding: 1.5rem;
+    }
+    .cta-split-container {
+        gap: 1.5rem;
+    }
+}
+
+
+/* ==========================================================================
+   📏 Readable Text Blocks (WCAG 1.4.8 - lines of 80 characters or fewer)
+   ========================================================================== */
+main :is(p, .section-intro, li:not(.service-card)) {
+    max-width: 62ch;
+}
+
+/* 1.4.8 paragraph / list spacing (gap between blocks is at least half a line) */
+.profile-text-content p {
+    margin-bottom: 1.2rem;
+}
+
+.glossary-list li {
+    margin-bottom: 0.9rem;
+}
+
+.meta-info li {
+    margin-bottom: 0.75rem;
+}
+
+/* Keep the fixed Help and Top buttons from colliding on small screens */
+@media (max-width: 650px) {
+    .consistent-help-panel {
+        left: 1rem;
+        bottom: 1rem;
+        max-width: calc(100% - 7.5rem);
+    }
+    .back-to-top {
+        right: 1rem;
+        bottom: 1rem;
+    }
+}
