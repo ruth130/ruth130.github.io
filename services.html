@@ -3,186 +3,215 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services & Pricing | AccessAble Accessibility Consulting</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Services &amp; Pricing | AccessAble Accessibility Consulting</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <a href="#main-content" id="skip-link-global" class="skip-link">Skip to main content</a>
 
     <header>
         <div class="header-brand">
-            <a href="index.html" class="logo-link" aria-label="AccessAble Accessibility Consulting - Home">
-                <img src="images/logo.png" alt="" class="header-logo" onerror="this.style.display='none'">
+            <a href="index.html" id="brandLogoContainer" class="logo-link" aria-label="AccessAble Accessibility Consulting - Home">
+                <img src="images/logo.png" alt="AccessAble Consulting Logo" class="header-logo" id="brandLogoImg">
             </a>
-            
+
             <div class="brand-text">
-    <h1 class="brand-title">AccessAble Accessibility Consulting</h1>
-    <span class="brand-subtitle">Ruth Kearney, B.A, CIP | Certified Accessibility Consultant</span>
-</div>
+                <span class="brand-title">AccessAble Accessibility Consulting</span>
+                <span class="brand-subtitle">Ruth Kearney, B.A, <abbr title="Chartered Insurance Professional">CIP</abbr> | Certified Accessibility Consultant</span>
+            </div>
         </div>
-        
+
         <div class="nav-container">
             <nav aria-label="Main Navigation">
-<ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="services.html">Services & Pricing</a></li>
-    <li><a href="contact.html">Contact</a></li>
-    <!-- <li><a href="resources.html">Resources</a></li> -->
-    <li><a href="accessibility.html">Accessibility</a></li>
-</ul>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html" class="active" aria-current="page">Services & Pricing</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
             </nav>
 
-            <div class="social-group" aria-label="Social Media Context Links">
-                <a href="https://www.instagram.com/accessableaccessibility/" class="social-link" target="_blank" rel="noopener" aria-label="Visit our Instagram profile (opens in a new tab)">
-                    <svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-                    <svg class="external-glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3zm-4 2H4v14h14v-6h2v8H2V3h8v2z"/></svg>
+            <div class="header-actions-area">
+                <div class="social-group" aria-label="Social Media Profiles">
+                    <a href="https://www.instagram.com/accessableaccessibility/" class="social-link" aria-label="Visit our Instagram profile">
+                        <svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                    <span class="visually-hidden">Instagram</span>
                 </a>
-                <a href="https://www.facebook.com/profile.php?id=61587194308628" class="social-link" target="_blank" rel="noopener" aria-label="Visit our Facebook page (opens in a new tab)">
-                    <svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
-                    <svg class="external-glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3zm-4 2H4v14h14v-6h2v8H2V3h8v2z"/></svg>
+                <a href="https://www.facebook.com/profile.php?id=61587194308628" class="social-link" aria-label="Visit our Facebook page">
+                    <svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+                    <span class="visually-hidden">Facebook</span>
                 </a>
-                <a href="https://www.linkedin.com/in/ruth-kearney-02051a6a" class="social-link" target="_blank" rel="noopener" aria-label="Visit our LinkedIn profile (opens in a new tab)">
-                    <svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452z"/></svg>
-                    <svg class="external-glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3zm-4 2H4v14h14v-6h2v8H2V3h8v2z"/></svg>
+                <a href="https://www.linkedin.com/in/ruth-kearney-02051a6a" class="social-link" aria-label="Visit our LinkedIn profile">
+                    <svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452z"/></svg>
+                    <span class="visually-hidden">LinkedIn</span>
                 </a>
+            </div>
+
+                <button id="themeToggle" class="theme-toggle-btn" aria-label="Light Mode (switch to light theme)">
+                    <span id="themeToggleIcon" aria-hidden="true">☀️</span>
+                    <span id="themeToggleText">Light Mode</span>
+                </button>
             </div>
         </div>
     </header>
 
-    <main id="main-content">
-        <h1 class="page-title">AccessAble Services & Pricing</h1>
+    <div class="consistent-help-panel" aria-label="Help Options">
+        <a href="accessibility.html" class="consistent-help-link">
+            <svg class="consistent-help-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+            Report an Accessibility Issue
+        </a>
+    </div>
 
-        <section id="individual-services" class="services-section">
-            <h2>1. For Individuals: Affirming Support</h2>
-            <p class="section-description">Affirming support for individuals navigating professional or personal barriers, led by someone who truly understands the ND experience.</p>
-            
-            <ul class="card-list">
-                <li class="card">
-                    <div class="card-header">
-                        <h3>1:1 Coaching Session</h3>
-                        <span class="price">$150</span>
-                    </div>
-                    <p>A 50-minute session via Zoom focused on navigating professional or personal barriers with a neurodivergent-affirming lens.</p>
-                </li>
+    <main id="main-content" tabindex="-1">
+        <h1 class="page-title">Services &amp; Pricing</h1>
+        <p class="section-intro">Clear, upfront pricing for individuals and organizations.</p>
 
-                <li class="card">
-                    <div class="card-header">
-                        <h3>The "Pocket Coach"</h3>
-                        <span class="price">$350 / month</span>
-                    </div>
-                    <p>Ongoing async voice and text support via WhatsApp, providing a convenient, accessible way to get expert guidance in real-time.</p>
-                    <ul class="meta-info">
-                        <li><strong>Office Hours:</strong> Monday–Friday, 12:00 PM – 6:00 PM</li>
-                        <li><strong>Response Time:</strong> Responses within 24 hours</li>
-                    </ul>
-                </li>
+        <section id="individual-services" class="home-section services-section" aria-labelledby="individual-heading">
+            <h2 id="individual-heading">For Individuals: Affirming Support</h2>
+            <p>Affirming support for individuals navigating professional or personal barriers, led by someone who truly understands the <abbr title="Neurodivergent">ND</abbr> experience.</p>
+            <ul class="service-list">
+                    <li class="service-card">
+                        <div class="service-card-header">
+                            <h3>1:1 Coaching Session</h3>
+                            <span class="price">$150</span>
+                        </div>
+                        <p>A 50-minute session via Zoom focused on navigating professional or personal barriers with a neurodivergent-affirming lens.</p>
+                    </li>
+                    <li class="service-card">
+                        <div class="service-card-header">
+                            <h3>The &ldquo;Pocket Coach&rdquo;</h3>
+                            <span class="price">$350 / month</span>
+                        </div>
+                        <p>Ongoing async voice and text support via WhatsApp, providing a convenient, accessible way to get expert guidance in real-time.</p>
+                        <ul class="meta-info">
+                            <li><strong>Office Hours:</strong> Monday&ndash;Friday, 12:00 PM &ndash; 6:00 PM</li>
+                            <li><strong>Response Time:</strong> Responses within 24 hours</li>
+                        </ul>
+                    </li>
             </ul>
         </section>
 
-        <section id="organization-services" class="services-section">
-            <h2>2. For Organizations: Expert Training & Audits</h2>
-            <p class="section-description">Building internal competence by bridging the gap between technical code and the Human Layer of disability.</p>
-            
-            <ul class="card-list">
-                <li class="card">
-                    <div class="card-header">
-                        <h3>Standard Team Training</h3>
-                        <span class="price">$800</span>
-                    </div>
-                    <p>Choice of pre-prepared expert decks: "The ABCs of Accessibility" or "Mastering the Accessible Document".</p>
-                    <p>Includes a live 90-minute session, session recording, and reference material.</p>
-                </li>
-
-                <li class="card">
-                    <div class="card-header">
-                        <h3>Custom Team Training</h3>
-                        <span class="price">$1,200</span>
-                    </div>
-                    <p>A fully tailored 90-minute session featuring a deck built for your organization’s specific roles and workflows.</p>
-                    <p>Includes 4+ hours of expert preparation, a live 90-minute session, session recording, and reference material to ensure role-specific competence.</p>
-                </li>
-
-                <li class="card">
-                    <div class="card-header">
-                        <h3>ND Inclusion Audit</h3>
-                        <span class="price">$1,500</span>
-                    </div>
-                    <p>A strategic review of internal culture and processes to ensure neurodivergent employees can thrive.</p>
-                </li>
-
-                <li class="card">
-                    <div class="card-header">
-                        <h3>Website Accessibility Audit</h3>
-                        <span class="price">Starting at $2,000</span>
-                    </div>
-                    <p>Comprehensive manual and technical verification to identify the 60% of risks that automated tools miss. Scoped per project.</p>
-                </li>
+        <section id="organization-services" class="home-section services-section" aria-labelledby="organization-heading">
+            <h2 id="organization-heading">For Organizations: Expert Training &amp; Audits</h2>
+            <p>Building internal competence by bridging the gap between technical code and the Human Layer of disability.</p>
+            <ul class="service-list">
+                    <li class="service-card">
+                        <div class="service-card-header">
+                            <h3>Standard Team Training</h3>
+                            <span class="price">$800</span>
+                        </div>
+                        <p>Choice of pre-prepared expert decks: &ldquo;The ABCs of Accessibility&rdquo; or &ldquo;Mastering the Accessible Document&rdquo;.</p>
+                        <p>Includes a live 90-minute session, session recording, and reference material.</p>
+                    </li>
+                    <li class="service-card">
+                        <div class="service-card-header">
+                            <h3>Custom Team Training</h3>
+                            <span class="price">$1,200</span>
+                        </div>
+                        <p>A fully tailored 90-minute session featuring a deck built for your organization&rsquo;s specific roles and workflows.</p>
+                        <p>Includes 4+ hours of expert preparation, a live 90-minute session, session recording, and reference material to ensure role-specific competence.</p>
+                    </li>
+                    <li class="service-card">
+                        <div class="service-card-header">
+                            <h3>ND Inclusion Audit</h3>
+                            <span class="price">$1,500</span>
+                        </div>
+                        <p>A strategic review of internal culture and processes to ensure neurodivergent employees can thrive.</p>
+                    </li>
+                    <li class="service-card">
+                        <div class="service-card-header">
+                            <h3>Website Accessibility Audit</h3>
+                            <span class="price">Starting at $2,000</span>
+                        </div>
+                        <p>Comprehensive manual and technical verification to identify the 60% of risks that automated tools miss. Scoped per project.</p>
+                    </li>
             </ul>
         </section>
 
-        <section class="services-section">
-            <h2>3. Strategic Partnership</h2>
-            <p class="section-description">High-impact projects and ongoing governance for full-scale compliance with the ACA and provincial mandates.</p>
-            
-            <ul class="card-list">
-                <li class="card">
-                    <div class="card-header">
-                        <h3>Ad-hoc Consulting</h3>
-                        <span class="price">$200 / hour</span>
-                    </div>
-                    <p>Expert support for one-off technical questions, document remediation, or strategy sessions.</p>
-                </li>
-
-                <li class="card">
-                    <div class="card-header">
-                        <h3>Governance Retainer</h3>
-                        <span class="price">Oversight Retainer</span>
-                    </div>
-                    <p>Requires a 3-month commitment to ensure long-term policy integrity and risk mitigation.</p>
-                    <ul class="meta-info">
-                        <li><strong>4 hrs/month:</strong> $187.50/hr ($750/month)</li>
-                        <li><strong>8 hrs/month:</strong> $175.00/hr ($1,400/month)</li>
-                        <li><strong>12 hrs/month:</strong> $165.00/hr ($1,980/month)</li>
-                    </ul>
-                </li>
+        <section id="strategic-partnership" class="home-section services-section" aria-labelledby="strategic-heading">
+            <h2 id="strategic-heading">Strategic Partnership</h2>
+            <p>High-impact projects and ongoing governance for full-scale compliance with the ACA and provincial mandates.</p>
+            <ul class="service-list">
+                    <li class="service-card">
+                        <div class="service-card-header">
+                            <h3>Ad-hoc Consulting</h3>
+                            <span class="price">$200 / hour</span>
+                        </div>
+                        <p>Expert support for one-off technical questions, document remediation, or strategy sessions.</p>
+                    </li>
+                    <li class="service-card">
+                        <div class="service-card-header">
+                            <h3>Governance Retainer</h3>
+                        </div>
+                        <p>Requires a 3-month commitment to ensure long-term policy integrity and risk mitigation.</p>
+                        <ul class="meta-info">
+                            <li><strong>4 hrs/month:</strong> $187.50/hr ($750/month)</li>
+                            <li><strong>8 hrs/month:</strong> $175.00/hr ($1,400/month)</li>
+                            <li><strong>12 hrs/month:</strong> $165.00/hr ($1,980/month)</li>
+                        </ul>
+                    </li>
             </ul>
         </section>
 
-        <section class="human-layer-box" aria-label="Methodology Statement">
-            <h3>Why the Human Layer Matters</h3>
-            <p>Automated tools only find about 30-40% of accessibility issues. For the other 60%, you need a human perspective. My lived experience as an autistic individual, combined with my professional designations, allows me to identify the broken processes in your manuals, forms, and flows that technical tools simply cannot see.</p>
-        </section>
-
-        <section class="cta-banner" aria-label="Intake Channels">
-            <h3>Ready to start?</h3>
-            <p class="intro-text">To ensure personalized service and a manageable workload, all client intakes are structured to respect your time and communication preferences.</p>
-            
-           <div class="cta-grid">
-                
-                <div class="cta-card">
-                    <h3>Let's Chat First</h3>
-                    <p>Book a free, 15-minute introductory consultation to discuss your needs.</p>
-                    <a href="https://calendar.app.google/gNQzkk5dsByMoFer8" 
-                       target="_blank" 
-                       rel="noopener" 
-                       class="cta-link">Schedule Free Consultation<span class="sr-only"> (opens in a new tab)</span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3zm-4 2H4v14h14v-6h2v8H2V3h8v2z"/></svg>
-                    </a>
-                </div>
-
-                <div class="cta-card">
-                    <h3>Request a Project Quote</h3>
-                    <p>Have a specific project or audit scope in mind? Submit your parameters directly.</p>
-                    <a href="https://forms.gle/bXz4GAgffQhFirALA" 
-                       target="_blank" 
-                       rel="noopener" 
-                       class="cta-link cta-link-large">Fill Out Quote Request<span class="sr-only"> (opens in a new tab)</span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3zm-4 2H4v14h14v-6h2v8H2V3h8v2z"/></svg>
-                    </a>
-                </div>
-
+        <section class="home-section" aria-labelledby="human-perspective-heading">
+            <h2 id="human-perspective-heading">The Human Perspective</h2>
+            <div class="feature-card">
+                <h3>Why the &ldquo;Human Layer&rdquo; Matters</h3>
+                <p>Automated tools only find about 30-40% of accessibility issues. For the other 60%, you need a human perspective. My lived experience as an autistic individual, combined with my professional designations, allows me to identify the broken processes in your manuals, forms, and flows that technical tools simply cannot see.</p>
             </div>
+        </section>
 
+        <section class="home-section ready-to-start-section">
+            <div class="feature-card cta-main-card">
+                <h2 class="cta-heading">Ready to start?</h2>
+                <p class="cta-intro-text">
+                    To ensure personalized service and a manageable workload, all client intakes are structured to respect your time and communication preferences.
+                </p>
+
+                <div class="cta-split-container">
+
+                    <div class="cta-inner-box">
+                        <div>
+                            <h3 class="cta-box-title">Let's Chat First</h3>
+                            <p class="cta-box-description">
+                                Book a free, 15-minute introductory consultation to discuss your needs.
+                            </p>
+                        </div>
+                        <a href="https://calendar.app.google/xUgXJCssR6XMGdk8A"
+                           class="btn"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           aria-label="Schedule Free Consultation (opens in a new tab)">
+                            Schedule Free Consultation
+                        </a>
+                    </div>
+
+                    <div class="cta-inner-box">
+                        <div>
+                            <h3 class="cta-box-title">Request a Project Quote</h3>
+                            <p class="cta-box-description">
+                                Have a specific project or audit scope in mind? Submit your parameters directly.
+                            </p>
+                        </div>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLScbKb4CCIJ5krEg-ghoG_O-TSTOMvjk7x22Ctgcwlv14UPP6A/viewform?usp=header"
+                           class="btn"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           aria-label="Fill Out Quote Request (opens in a new tab)">
+                            Fill Out Quote Request
+                        </a>
+                    </div>
+
+                </div>
+
+                <p class="cta-fallback-text">
+                    Prefer direct communication? Email me at:
+                    <a href="mailto:ruth@accessableaccessibility.ca" class="cta-fallback-link">ruth@accessableaccessibility.ca</a>
+                </p>
+            </div>
         </section>
     </main>
 
@@ -190,48 +219,135 @@
         &uarr; Top
     </button>
 
-    <script>
-        const backToTopBtn = document.getElementById("backToTopBtn");
+    <footer class="site-footer">
+        <div class="footer-content-wrapper">
+            <nav class="footer-primary-nav" aria-label="Footer Navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services & Pricing</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
 
-        window.onscroll = function() {
-            if (document.body.scrollTop > 250 || document.documentElement.scrollTop > 250) {
-                backToTopBtn.classList.add("visible");
-            } else {
-                backToTopBtn.classList.remove("visible");
-            }
-        };
-
-        function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        }
-    </script>
-
-    <footer>
-        <p>&copy; 2026 AccessAble Accessibility Consulting. All rights reserved.</p>
-        <div class="footer-nav">
-            <div class="footer-links">
-                <a href="accessibility.html">Accessibility Statement</a>
-            </div>
-            
-            <div class="social-group footer-social-group" aria-label="Social Media Context Links">
-                <a href="https://www.instagram.com/accessableaccessibility/" class="social-link" target="_blank" rel="noopener" aria-label="Visit our Instagram profile (opens in a new tab)">
-                    <svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-                    <svg class="external-glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3zm-4 2H4v14h14v-6h2v8H2V3h8v2z"/></svg>
+            <div class="footer-social-group" aria-label="Footer Social Links">
+                <a href="https://www.instagram.com/accessableaccessibility/" class="social-link" aria-label="Visit our Instagram profile">
+                    <svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                    <span class="visually-hidden">Instagram</span>
                 </a>
-                <a href="https://www.facebook.com/profile.php?id=61587194308628" class="social-link" target="_blank" rel="noopener" aria-label="Visit our Facebook page (opens in a new tab)">
-                    <svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
-                    <svg class="external-glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3zm-4 2H4v14h14v-6h2v8H2V3h8v2z"/></svg>
+                <a href="https://www.facebook.com/profile.php?id=61587194308628" class="social-link" aria-label="Visit our Facebook page">
+                    <svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+                    <span class="visually-hidden">Facebook</span>
                 </a>
-                <a href="https://www.linkedin.com/in/ruth-kearney-02051a6a" class="social-link" target="_blank" rel="noopener" aria-label="Visit our LinkedIn profile (opens in a new tab)">
-                    <svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452z"/></svg>
-                    <svg class="external-glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3zm-4 2H4v14h14v-6h2v8H2V3h8v2z"/></svg>
+                <a href="https://www.linkedin.com/in/ruth-kearney-02051a6a" class="social-link" aria-label="Visit our LinkedIn profile">
+                    <svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452z"/></svg>
+                    <span class="visually-hidden">LinkedIn</span>
                 </a>
             </div>
+
+            <div class="footer-statement-row">
+                <a href="accessibility.html" class="footer-statement-link">Accessibility Statement</a>
+            </div>
+
+            <p class="footer-copyright-text">&copy; 2026 AccessAble Accessibility Consulting. All rights reserved.</p>
         </div>
     </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const brandLogoImg = document.getElementById('brandLogoImg');
+            const brandLogoContainer = document.getElementById('brandLogoContainer');
+
+            if (brandLogoImg && brandLogoContainer) {
+                brandLogoImg.addEventListener('error', function() {
+                    const textualFallback = document.createElement('span');
+                    textualFallback.style.fontWeight = '800';
+                    textualFallback.style.fontSize = '1.3rem';
+                    textualFallback.style.color = 'var(--text-brand)';
+                    textualFallback.style.display = 'inline-block';
+                    textualFallback.textContent = 'AccessAble Home';
+
+                    brandLogoContainer.appendChild(textualFallback);
+                });
+            }
+
+            const backToTopBtn = document.getElementById("backToTopBtn");
+
+            window.onscroll = function() {
+                if (document.body.scrollTop > 250 || document.documentElement.scrollTop > 250) {
+                    backToTopBtn.style.display = "inline-flex";
+                    setTimeout(() => {
+                        backToTopBtn.classList.add("visible");
+                    }, 10);
+                } else {
+                    backToTopBtn.classList.remove("visible");
+                    backToTopBtn.addEventListener('transitionend', function handler(e) {
+                        if (!backToTopBtn.classList.contains('visible')) {
+                            backToTopBtn.style.display = "none";
+                        }
+                        backToTopBtn.removeEventListener('transitionend', handler);
+                    });
+                }
+            };
+
+            const themeToggleBtn = document.getElementById('themeToggle');
+            const themeToggleIcon = document.getElementById('themeToggleIcon');
+            const themeToggleText = document.getElementById('themeToggleText');
+
+            const currentTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+
+            if (currentTheme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+                updateToggleUI('light');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                updateToggleUI('dark');
+            }
+
+            themeToggleBtn.addEventListener('click', () => {
+                let theme = document.documentElement.getAttribute('data-theme');
+                if (theme === 'dark') {
+                    document.documentElement.setAttribute('data-theme', 'light');
+                    localStorage.setItem('theme', 'light');
+                    updateToggleUI('light');
+                } else {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                    localStorage.setItem('theme', 'dark');
+                    updateToggleUI('dark');
+                }
+            });
+
+            function updateToggleUI(theme) {
+                if (theme === 'light') {
+                    themeToggleIcon.textContent = '🌙';
+                    themeToggleText.textContent = 'Dark Mode';
+                    themeToggleBtn.setAttribute('aria-label', 'Dark Mode (switch to dark theme)');
+                } else {
+                    themeToggleIcon.textContent = '☀️';
+                    themeToggleText.textContent = 'Light Mode';
+                    themeToggleBtn.setAttribute('aria-label', 'Light Mode (switch to light theme)');
+                }
+            }
+        });
+
+        // Strict focus tracking skip utility
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+            });
+
+            const topFocusTarget = document.getElementById('skip-link-global');
+            if (topFocusTarget) {
+                if ('requestAnimationFrame' in window) {
+                    requestAnimationFrame(() => {
+                        setTimeout(() => topFocusTarget.focus(), 150);
+                    });
+                } else {
+                    setTimeout(() => topFocusTarget.focus(), 300);
+                }
+            }
+        }
+    </script>
 </body>
 </html>
